@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff2a2a" />
+    <title>Luojinxuan Wang, UX Designer & Creative Technologist</title>
+    <meta
+      name="description"
+      content="Luojinxuan Wang is a UX designer and creative technologist who came to tech from film, building human-centered AI and spatial interfaces that make complex technology intuitive."
+    />
+    <!-- Branded favicon: Bauhaus circle / square / ring motif -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fffdf9'/%3E%3Ccircle cx='13' cy='16' r='8' fill='%23ff2a2a'/%3E%3Crect x='15' y='8' width='12' height='12' rx='2.5' fill='%2316020e'/%3E%3Ccircle cx='11' cy='11' r='5' fill='none' stroke='%23f4cbd9' stroke-width='2.6'/%3E%3C/svg%3E"
+    />
+    <link rel="apple-touch-icon" href="assets/images/cs-chaldene-workflow.jpg" />
+    <!-- Social sharing. Replace relative paths with absolute URLs (https://yourdomain/…) at deploy. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Luojinxuan Wang, UX Designer & Creative Technologist" />
+    <meta
+      property="og:description"
+      content="A filmmaker's eye, an engineer's hands. I make complex technology intuitive. UX designer and creative technologist building human-centered AI and spatial interfaces."
+    />
+    <meta property="og:image" content="assets/images/cs-chaldene-workflow.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Luojinxuan Wang, UX Designer & Creative Technologist" />
+    <meta
+      name="twitter:description"
+      content="A filmmaker's eye, an engineer's hands. I make complex technology intuitive. UX designer and creative technologist building human-centered AI and spatial interfaces."
+    />
+    <meta name="twitter:image" content="assets/images/cs-chaldene-workflow.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <template id="__bundler_thumbnail" data-bg-color="#fffdf9">
+      <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="800" fill="#fffdf9" />
+        <circle cx="520" cy="360" r="130" fill="#ff2a2a" />
+        <rect x="590" y="330" width="170" height="170" rx="28" fill="#16020e" />
+        <circle cx="450" cy="470" r="80" fill="none" stroke="#f4cbd9" stroke-width="34" />
+      </svg>
+    </template>
+    <div class="noise"></div>
+    <div class="scanlines"></div>
+    <div class="progress" id="progress"></div>
+    <div class="sel-transition" id="selTransition" aria-hidden="true"></div>
+    <div class="you-cur" id="youCur" aria-hidden="true">
+      <svg width="17" height="21" viewBox="-2 -2 18 22" fill="none">
+        <path
+          d="M0.5 0.5L13 10.5H5.5L2.5 17.5L0.5 0.5Z"
+          fill="#16020e"
+          stroke="#fff"
+          stroke-width="1.5"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+      <div class="you-cur__labels">
+        <div class="you-tag">You</div>
+        <div class="you-alt" id="youAlt"></div>
+      </div>
+    </div>
+
+    <header class="site-header"></header>
+
+    <main id="top" tabindex="-1">
+      <section class="hero-sequence" id="hero" aria-label="Interactive portfolio introduction">
+        <div class="hero-sticky">
+          <div class="artboard hero-artboard" id="heroArtboard">
+            <div class="hero-decoration hero-shape deco-ring" data-shape-depth="30" aria-hidden="true"></div>
+            <div class="hero-decoration hero-shape deco-square" data-shape-depth="-22" aria-hidden="true"></div>
+            <div class="hero-decoration hero-shape deco-disc" data-shape-depth="38" aria-hidden="true"></div>
+
+            <section class="hero-ic">
+              <div class="hero-ic-wrap">
+                <div class="name-line">
+                  <div class="mask-wrap">
+                    <div class="hero-name-text display">LUOJINXUAN</div>
+                  </div>
+                </div>
+                <div class="name-line">
+                  <div class="mask-wrap">
+                    <div class="hero-name-text display outline">WANG</div>
+                  </div>
+                </div>
+                <div class="role-rotator mono" aria-live="polite">
+                  <span>I work as</span>
+                  <span class="role-active">
+                    <span class="role-word" id="roleWord" style="opacity: 1">a UX Designer</span
+                    ><span class="type-cursor" aria-hidden="true"></span>
+                  </span>
+                </div>
+              </div>
+            </section>
+            <div class="hero-scroll-cue mono" aria-hidden="true"><span>Scroll to enter</span><i></i></div>
+          </div>
+
+          <div class="artboard intro-artboard" id="introArtboard" aria-hidden="true">
+            <div class="ia-panel">
+              <div class="ia-copy" id="iaCopy">
+                <p
+                  class="ia-text"
+                  id="iaText"
+                  aria-label="A filmmaker's eye, an engineer's hands. I make complex technology intuitive."
+                >
+                  <span class="ia-text-content" id="iaTextContent" aria-hidden="true"></span
+                  ><span class="intro-cursor" id="iaTypingCursor" aria-hidden="true"></span>
+                </p>
+                <div class="ia-asel" aria-hidden="true">
+                  <div class="selection-handle h-tl"></div>
+                  <div class="selection-handle h-tr"></div>
+                  <div class="selection-handle h-bl"></div>
+                  <div class="selection-handle h-br"></div>
+                  <div class="ia-asel-lbl mono">p / Statement 01</div>
+                </div>
+                <div class="ia-ac" aria-hidden="true">
+                  <svg width="17" height="21" viewBox="-2 -2 18 22" fill="none">
+                    <path
+                      d="M0.5 0.5L13 10.5H5.5L2.5 17.5L0.5 0.5Z"
+                      fill="#f7a4c4"
+                      stroke="#fff"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <div class="ia-ac-tag">Alo Wang</div>
+                </div>
+                <div class="ia-toast mono" aria-hidden="true">
+                  <div class="toast-hero-inner">
+                    <span class="toast-hero-prop">content</span><span class="toast-hero-arrow">→</span
+                    ><span class="toast-hero-val">editing...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="work section-pad" id="work">
+        <div class="shell">
+          <div class="section-eyebrow reveal">Selected <span class="outline">work</span></div>
+
+          <div class="case-stack">
+            <div class="fw-card-wrapper home-hidden">
+              <article
+                class="case-card fw-card"
+                tabindex="0"
+                data-project="sunslayer"
+                data-title="SunSlayer"
+                data-subtitle="Naked-eye 3D storytelling for a 90-degree corner"
+                data-description="A spatial animation inspired by Hou Yi shooting the suns, designed specifically for a corner display so imagery appears to push beyond the physical architecture."
+              >
+                <div class="fw-card__content">
+                  <div class="fw-card__top">
+                    <h3 class="fw-card__title">SunSlayer</h3>
+                    <p class="fw-card__vision">
+                      An immersive 90° corner installation balancing cinematic pacing, spatial illusion, and a Chinese
+                      mythological visual language.
+                    </p>
+                    <div class="case-tags">
+                      <span class="chip">Spatial UX</span><span class="chip">Blender</span
+                      ><span class="chip">Motion</span><span class="chip">Installation</span>
+                    </div>
+                  </div>
+                  <div class="fw-card__bottom">
+                    <span class="fw-card__cta" aria-hidden="true"
+                      >View Case Study<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="fw-card__visual">
+                  <div class="fw-cinema-frame"><div class="case-visual visual-4"></div></div>
+                  <div class="fw-cinema-corners"></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="fw-card-wrapper">
+              <article
+                class="case-card fw-card"
+                tabindex="0"
+                data-project="chaldene"
+                data-title="Chaldene"
+                data-subtitle="Visual programming for image-processing researchers"
+                data-description="I extended a node-based visual programming language in JupyterLab with direct-manipulation controls, synchronized image viewers, parameter exploration, and research-led interaction patterns."
+              >
+                <div class="fw-card__content">
+                  <div class="fw-card__top">
+                    <h3 class="fw-card__title">Chaldene</h3>
+                    <p class="fw-card__vision">
+                      A visual programming environment that makes complex image-processing pipelines more observable,
+                      tunable, and approachable.
+                    </p>
+                    <div class="case-tags">
+                      <span class="chip">UX Research</span><span class="chip">React</span
+                      ><span class="chip">JupyterLab</span><span class="chip">HCI</span>
+                    </div>
+                  </div>
+                  <div class="fw-card__bottom">
+                    <span class="fw-card__cta" aria-hidden="true"
+                      >View Case Study<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="fw-card__visual">
+                  <div class="fw-cinema-frame"><div class="case-visual visual-1"></div></div>
+                  <div class="fw-cinema-corners"></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="fw-card-wrapper">
+              <article
+                class="case-card fw-card"
+                tabindex="0"
+                data-project="goodgo"
+                data-title="GoodGo Map"
+                data-subtitle="Accessible travel navigation designed around wheeling"
+                data-description="GoodGo surfaces accessible toilets, elevators, ramps, route effort, facility details, ratings, and problem reports at the moments where wheelchair users need them most."
+              >
+                <div class="fw-card__content">
+                  <div class="fw-card__top">
+                    <h3 class="fw-card__title">GoodGo Map</h3>
+                    <p class="fw-card__vision">
+                      An accessible navigation concept that replaces generic walking assumptions with wheeling-specific
+                      route effort and facility intelligence.
+                    </p>
+                    <div class="case-tags">
+                      <span class="chip">Accessibility</span><span class="chip">User Study</span
+                      ><span class="chip">Figma</span><span class="chip">Service UX</span>
+                    </div>
+                  </div>
+                  <div class="fw-card__bottom">
+                    <span class="fw-card__cta" aria-hidden="true"
+                      >View Case Study<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="fw-card__visual">
+                  <div class="fw-cinema-frame">
+                    <div class="case-visual visual-strip">
+                      <div class="strip-track" aria-hidden="true">
+                        <img src="assets/images/cs-goodgo-hero.png" alt="" loading="lazy" />
+                        <img src="assets/images/cs-goodgo-drive.png" alt="" loading="lazy" />
+                        <img src="assets/images/cs-goodgo-info.png" alt="" loading="lazy" />
+                        <img src="assets/images/cs-goodgo-preference.png" alt="" loading="lazy" />
+                        <img src="assets/images/cs-goodgo-report.png" alt="" loading="lazy" />
+                        <img src="assets/images/cs-goodgo-wheel.png" alt="" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fw-cinema-corners"></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="fw-card-wrapper">
+              <article
+                class="case-card fw-card"
+                tabindex="0"
+                data-project="veramolnar"
+                data-title="How To: Vera Molnár"
+                data-subtitle="An interactive introduction to a generative-art pioneer"
+                data-description="I designed the user journey and interactive learning mechanics that teach Vera Molnár's generative-art ideas by letting people play with the rules behind them, and produced the teaser video."
+              >
+                <div class="fw-card__content">
+                  <div class="fw-card__top">
+                    <h3 class="fw-card__title">How To: Vera Molnár</h3>
+                    <p class="fw-card__vision">
+                      A playful, hands-on explainer that turns Vera Molnár's algorithmic art concepts into something you
+                      learn by doing, not just reading.
+                    </p>
+                    <div class="case-tags">
+                      <span class="chip">Interaction Design</span><span class="chip">Generative Art</span
+                      ><span class="chip">Learning UX</span><span class="chip">Motion</span>
+                    </div>
+                  </div>
+                  <div class="fw-card__bottom">
+                    <span class="fw-card__cta" aria-hidden="true"
+                      >View Case Study<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="fw-card__visual">
+                  <div class="fw-cinema-frame"><div class="case-visual visual-2"></div></div>
+                  <div class="fw-cinema-corners"></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="fw-card-wrapper home-hidden">
+              <article
+                class="case-card fw-card"
+                tabindex="0"
+                data-project="watch"
+                data-title="Watch & Watched"
+                data-subtitle="An AR panopticon about surveillance and perspective"
+                data-description="An interactive installation exploring surveillance through three positions (the observed, the observer, and the outsider), turning a theoretical concept into spatial experience."
+              >
+                <div class="fw-card__content">
+                  <div class="fw-card__top">
+                    <h3 class="fw-card__title">Watch & Watched</h3>
+                    <p class="fw-card__vision">
+                      An AR installation inspired by Bentham's Panopticon, designed to make power relationships legible
+                      through embodied perspective.
+                    </p>
+                    <div class="case-tags">
+                      <span class="chip">AR</span><span class="chip">Concept Design</span
+                      ><span class="chip">Critical UX</span>
+                    </div>
+                  </div>
+                  <div class="fw-card__bottom">
+                    <span class="fw-card__cta" aria-hidden="true"
+                      >View Case Study<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
+                <div class="fw-card__visual">
+                  <div class="fw-cinema-frame"><div class="case-visual visual-5"></div></div>
+                  <div class="fw-cinema-corners"></div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-teaser tone-a" id="about">
+        <div class="at-deco" aria-hidden="true">
+          <span class="atd atd-dash"></span>
+          <span class="atd atd-star"></span>
+        </div>
+        <div class="container">
+          <h2 class="at-heading">THE ARCHITECT<br />BEHIND THE <span class="outline">WORK.</span></h2>
+          <a
+            href="/about"
+            class="at-link"
+            id="profileOpen"
+            data-cursor-hover="true"
+            aria-label="View Alo's full profile"
+            aria-haspopup="dialog"
+            aria-controls="profileView"
+            >VIEW FULL PROFILE</a
+          >
+        </div>
+      </section>
+
+      <footer class="site-footer" id="contact"></footer>
+    </main>
+
+    <section
+      class="profile-view work-view"
+      id="workView"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="workTitle"
+      aria-hidden="true"
+    >
+      <div class="profile-progress" id="workProgress" aria-hidden="true"></div>
+      <header class="site-header"></header>
+
+      <div class="work-hero">
+        <div class="shell">
+          <h1 class="h1-mega" id="workTitle">WORK</h1>
+        </div>
+      </div>
+
+      <div class="work-list" aria-label="Case studies"></div>
+
+      <footer class="site-footer"></footer>
+    </section>
+
+    <section
+      class="profile-view"
+      id="profileView"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="profileTitle"
+      aria-hidden="true"
+    >
+      <div class="profile-progress" id="profileProgress" aria-hidden="true"></div>
+      <header class="site-header"></header>
+
+      <div id="profileTop">
+        <section class="profile-hybrid">
+          <div class="hybrid-wrapper">
+            <div class="hybrid-left">
+              <h1 class="h1-mega" id="profileTitle">ABOUT</h1>
+              <div class="editorial-block profile-reveal">
+                <span class="block-label mono">01 / The Drive</span>
+                <p class="lead-copy">
+                  Film taught me where to point attention. Computer science taught me how to build the experience around
+                  it.
+                </p>
+                <p class="body-copy">
+                  I take intimidating things, AI tools, 3D scenes, research prototypes, and shape them into experiences
+                  where complexity feels manageable and the next step feels obvious. Research, design, and code, all in
+                  me.
+                </p>
+                <p class="body-copy">
+                  I'm drawn to problems that fall between disciplines, where ownership is unclear and the solution has
+                  yet to take shape. I usually build to understand, test, and uncover what works. And I still get a
+                  genuine kick out of an interface that simply clicks.
+                </p>
+              </div>
+              <div class="editorial-block profile-reveal">
+                <span class="block-label mono">02 / The Off-Screen</span>
+                <p class="body-copy">
+                  Off the clock, I'm usually outside with a nine-month-old puppy in training to become a service dog.
+                  It's a lot like design: small, repeatable steps, real patience, and the satisfaction of seeing it add
+                  up to something meaningful.
+                </p>
+                <p class="body-copy">
+                  Mostly, I just enjoy making things. My current project is our wedding, which I'm designing from end to
+                  end: from the food and visual identity to the music and atmosphere.
+                </p>
+                <p class="body-copy">
+                  Home is my partner, the pup, and whatever we're building or traveling toward next.
+                </p>
+              </div>
+            </div>
+            <div class="hybrid-right">
+              <div class="p-img-wrap p-fast offset-r" style="z-index: 6">
+                <img alt="My man and I being cinematic" loading="eager" src="assets/images/offscreen-portrait.JPG" />
+              </div>
+              <div class="p-img-wrap p-slow offset-l" style="z-index: 5">
+                <img
+                  alt="Me holding my pup, she was three months old"
+                  loading="lazy"
+                  src="assets/images/offscreen-puppy.jpg"
+                />
+              </div>
+              <div class="p-img-wrap p-med offset-r" style="z-index: 4">
+                <img alt="The family" loading="lazy" src="assets/images/offscreen-family.jpg" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="profile-section career pinned" id="profileCareer">
+          <div class="shell">
+            <div class="profile-section__head profile-reveal">
+              <div>
+                <h2 class="sec-title">CAREER <span class="outline">TIMELINE</span></h2>
+                <p class="profile-lead">
+                  A path from international digital production and immersive media into research software, interaction
+                  design, and human-centered AI.
+                </p>
+              </div>
+            </div>
+            <div class="profile-timeline">
+              <article class="timeline-row profile-reveal">
+                <div class="timeline-date mono">11.2023 - 11.2025</div>
+                <div class="timeline-node"></div>
+                <div class="timeline-role">
+                  <h3>Student Research Assistant</h3>
+                  <p>
+                    Extended Chaldene at DFKI: translated researchers' requirements into interaction concepts and
+                    implemented user-facing frontend, backend, and communication features for visual image-processing
+                    workflows.
+                  </p>
+                </div>
+                <div class="timeline-place mono">DFKI<br />Saarbrücken</div>
+              </article>
+              <article class="timeline-row profile-reveal">
+                <div class="timeline-date mono">04.2017 - 07.2019</div>
+                <div class="timeline-node"></div>
+                <div class="timeline-role">
+                  <h3>Content Specialist</h3>
+                  <p>
+                    Managed VR content quality and lifecycle, planned data-driven in-app campaigns, and worked across
+                    product, content, and community.
+                  </p>
+                </div>
+                <div class="timeline-place mono">VeeR VR<br />Beijing</div>
+              </article>
+              <article class="timeline-row profile-reveal">
+                <div class="timeline-date mono">12.2015 - 02.2017</div>
+                <div class="timeline-node"></div>
+                <div class="timeline-role">
+                  <h3>Project Manager</h3>
+                  <p>
+                    Structured requirements, prioritized tasks, tracked project progress and timelines, and coordinated
+                    with international stakeholders.
+                  </p>
+                </div>
+                <div class="timeline-place mono">Big Dream Pie<br />Beijing</div>
+              </article>
+            </div>
+          </div>
+          <div class="pin-spacer" aria-hidden="true"></div>
+        </section>
+
+        <section class="profile-section education pinned" id="profileEducation">
+          <div class="shell">
+            <div class="profile-section__head profile-reveal">
+              <div>
+                <h2 class="sec-title">EDUCATION <span class="outline">TIMELINE</span></h2>
+                <p class="profile-lead">
+                  Film established the narrative foundation. Media Informatics added psychology, computer science, HCI,
+                  and the ability to build the interaction.
+                </p>
+              </div>
+            </div>
+            <div class="profile-timeline">
+              <article class="timeline-row profile-reveal">
+                <div class="timeline-date mono">10.2025 - Present</div>
+                <div class="timeline-node"></div>
+                <div class="timeline-role">
+                  <h3>M.Sc. Media Informatics</h3>
+                  <p>
+                    Focus on human-centered AI, software engineering, intelligent interactive systems, UX, and data
+                    visualization. Current thesis: spatial proxy controls for AI-assisted 3D scene generation in Unity.
+                  </p>
+                </div>
+                <div class="timeline-place mono">Saarland University<br />Grade 1.3</div>
+              </article>
+              <article class="timeline-row profile-reveal">
+                <div class="timeline-date mono">10.2020 - 09.2025</div>
+                <div class="timeline-node"></div>
+                <div class="timeline-role">
+                  <h3>B.Sc. Media Informatics</h3>
+                  <p>
+                    Combined computer science, psychology, HCI, media design, and research. Bachelor's thesis: enhancing
+                    visualisation expressiveness in the visual programming language Chaldene.
+                  </p>
+                </div>
+                <div class="timeline-place mono">Saarland University<br />Grade 2.0</div>
+              </article>
+              <article class="timeline-row profile-reveal">
+                <div class="timeline-date mono">09.2012 - 07.2016</div>
+                <div class="timeline-node"></div>
+                <div class="timeline-role">
+                  <h3>B.A. Theatre, Film & Television Literature</h3>
+                  <p>
+                    Film theory, history, criticism, production practice, literature, mass communication, and cultural
+                    studies.
+                  </p>
+                </div>
+                <div class="timeline-place mono">Beijing Film Academy<br />Beijing</div>
+              </article>
+            </div>
+          </div>
+          <div class="pin-spacer" aria-hidden="true"></div>
+        </section>
+
+        <section class="profile-section competencies pinned" id="profileCompetencies">
+          <div class="shell">
+            <div class="profile-section__head profile-reveal">
+              <div>
+                <h2 class="sec-title">CORE <span class="outline">COMPETENCIES</span></h2>
+              </div>
+            </div>
+            <div class="comp-grid">
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">01</span>
+                <div class="comp-name">Human-centered AI</div>
+                <div class="comp-desc">
+                  Designing interfaces and controls that make AI systems understandable, steerable, and genuinely useful
+                  to the people relying on them.
+                </div>
+              </div>
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">02</span>
+                <div class="comp-name">UX research</div>
+                <div class="comp-desc">
+                  Interviews, usability testing, and synthesis that turn observed behavior into clear, actionable design
+                  direction.
+                </div>
+              </div>
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">03</span>
+                <div class="comp-name">Interaction design</div>
+                <div class="comp-desc">
+                  Shaping how interfaces respond: flows, states, and micro-behaviors that feel deliberate rather than
+                  accidental.
+                </div>
+              </div>
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">04</span>
+                <div class="comp-name">Frontend prototyping</div>
+                <div class="comp-desc">
+                  Building testable prototypes in real code to validate ideas before committing to production.
+                </div>
+              </div>
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">05</span>
+                <div class="comp-name">Spatial interaction &amp; creative technology</div>
+                <div class="comp-desc">
+                  VR, 3D, and creative-technology work that extends interaction beyond the flat screen.
+                </div>
+              </div>
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">06</span>
+                <div class="comp-name">Accessibility</div>
+                <div class="comp-desc">
+                  Designing for a full range of abilities so products work for everyone, not only the default user.
+                </div>
+              </div>
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">07</span>
+                <div class="comp-name">Design systems</div>
+                <div class="comp-desc">
+                  Building scalable design languages and establishing governance models that keep enterprise teams
+                  aligned and efficient.
+                </div>
+              </div>
+              <div class="comp-row profile-reveal">
+                <span class="comp-index">08</span>
+                <div class="comp-name">Cross-functional translation</div>
+                <div class="comp-desc">
+                  Bridging research, design, and engineering so intent survives from concept to shipped feature.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pin-spacer" aria-hidden="true"></div>
+        </section>
+
+        <section class="profile-section toolkit" id="profileToolkit">
+          <div class="shell">
+            <div class="profile-section__head profile-reveal">
+              <div>
+                <h2 class="sec-title">MY <span class="outline">TOOLKIT</span></h2>
+              </div>
+            </div>
+            <div class="tool-rows">
+              <div class="tool-row profile-reveal">
+                <h3 class="mono">Design & research</h3>
+                <div class="tool-list">
+                  <span class="tool-chip">Figma</span><span class="tool-chip">Miro</span
+                  ><span class="tool-chip">User interviews</span><span class="tool-chip">Usability testing</span
+                  ><span class="tool-chip">Survey design</span><span class="tool-chip">Literature review</span>
+                </div>
+              </div>
+              <div class="tool-row profile-reveal">
+                <h3 class="mono">Frontend</h3>
+                <div class="tool-list">
+                  <span class="tool-chip">TypeScript</span><span class="tool-chip">JavaScript</span
+                  ><span class="tool-chip">React</span><span class="tool-chip">React Flow</span
+                  ><span class="tool-chip">HTML</span><span class="tool-chip">CSS</span>
+                </div>
+              </div>
+              <div class="tool-row profile-reveal">
+                <h3 class="mono">Software & backend</h3>
+                <div class="tool-list">
+                  <span class="tool-chip">Python</span><span class="tool-chip">FastAPI</span
+                  ><span class="tool-chip">Node.js</span><span class="tool-chip">Java</span
+                  ><span class="tool-chip">Git</span><span class="tool-chip">Docker</span
+                  ><span class="tool-chip">JupyterLab</span>
+                </div>
+              </div>
+              <div class="tool-row profile-reveal">
+                <h3 class="mono">Spatial & generative</h3>
+                <div class="tool-list">
+                  <span class="tool-chip">Unity</span><span class="tool-chip">Blender</span
+                  ><span class="tool-chip">ComfyUI</span><span class="tool-chip">ControlNet</span
+                  ><span class="tool-chip">TripoSR</span><span class="tool-chip">After Effects</span
+                  ><span class="tool-chip">Final Cut Pro</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer" id="profileContact"></footer>
+      </div>
+    </section>
+
+    <div class="modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="csTitle" aria-hidden="true">
+      <header class="site-header"></header>
+      <article class="cs" id="csContent"></article>
+      <footer class="site-footer"></footer>
+    </div>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
