@@ -688,7 +688,10 @@ section {
   position: sticky;
   top: calc(50svh - min(42.5svh, 390px));
   width: min(92vw, 1360px);
-  margin: 0 calc((100% - min(92vw, 1360px)) / 2) 13vh;
+  /* Fix: sticky "stuck" duration is bounded by viewport geometry, not by this margin - a
+     bigger gap only delays the next card's arrival further and never closes it. Keep this
+     small so each card stays pinned (and fully receded) until the next one covers it. */
+  margin: 0 calc((100% - min(92vw, 1360px)) / 2) 4vh;
   height: min(85svh, 780px);
   min-height: 520px;
   display: flex;
@@ -3612,6 +3615,9 @@ a.cs-video--facade {
   padding-inline: 7%;
   width: max-content;
   transform: translateX(var(--strip-x, 0%));
+  /* Fix: match the 0.2s linear smoothing on .visual-1's background-position-x pan so the
+     filmstrip eases per scroll frame instead of snapping. */
+  transition: transform 0.2s linear;
   will-change: transform;
 }
 .strip-track img {

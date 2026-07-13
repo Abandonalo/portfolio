@@ -287,7 +287,11 @@
   const IMG_PAN_START = 18,
     IMG_PAN_RANGE = 40,
     ART_PAN_RANGE = 9,
-    STRIP_PAN_RANGE = 60;
+    // Fix: STRIP_PAN_RANGE was 60, panning the filmstrip ~1.5x faster in actual pixels than
+    // IMG_PAN_RANGE pans the background image (translateX% is of the strip's own ~2278px
+    // width vs backgroundPositionX% of the image's ~2214px cover overflow). 39 makes both
+    // travel roughly the same pixel distance over the full scroll range.
+    STRIP_PAN_RANGE = 39;
   function panCardVisual(card, p) {
     const v = card && card.querySelector(".case-visual");
     if (!v) return;
