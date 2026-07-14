@@ -316,6 +316,7 @@
         card.style.transform = "none";
         card.style.filter = "none";
         card.style.opacity = "1";
+        card.style.zIndex = "";
         const rv = card.querySelector(".case-visual");
         if (rv) {
           rv.style.backgroundPositionX = "center";
@@ -331,6 +332,7 @@
         t = clamp((innerHeight - nr.top) / (innerHeight * 0.92));
       }
       // Recede in place (no upward drift) so the next card rises to fully cover this one.
+      card.style.zIndex = String(i + 1);
       card.style.transform = `scale(${(1 - t * 0.09).toFixed(4)})`;
       card.style.filter = t > 0.01 ? `blur(${(t * 6).toFixed(2)}px)` : "none";
       card.style.opacity = (1 - t * 0.88).toFixed(4);
@@ -607,31 +609,33 @@
         "GoodGo turns accessibility from an afterthought into the core of the routing experience, surfacing effort, facilities, and reliability up front so wheelchair users can plan a trip with confidence instead of guesswork.",
       shots: [
         {
-          src: "assets/images/cs-goodgo-survey.png",
-          cap: "Survey results: which accessibility information matters most and how wheelchair users plan trips.",
-          wide: true,
-        },
-        {
-          src: "assets/images/cs-goodgo-research.png",
-          cap: "Competitive audit of Rong Chang and Wheelmap, plus the resulting information architecture.",
-          wide: true,
-        },
-        {
-          group: "split",
-          left: [
-            {
-              src: "assets/images/cs-goodgo-persona2.png",
-              cap: "Persona synthesis: mapping demographics, behaviours, goals, and pain points.",
-            },
-            {
-              src: "assets/images/cs-goodgo-scenario.png",
-              cap: "User scenario: a day in Millie's life, grounding the design in real, everyday friction.",
-            },
+          group: "rows",
+          rows: [
+            [
+              {
+                src: "assets/images/cs-goodgo-survey.png",
+                cap: "Survey results: which accessibility information matters most and how wheelchair users plan trips.",
+              },
+              {
+                src: "assets/images/cs-goodgo-research.png",
+                cap: "Competitive audit of Rong Chang and Wheelmap, plus the resulting information architecture.",
+              },
+            ],
+            [
+              {
+                src: "assets/images/cs-goodgo-persona2.png",
+                cap: "Persona synthesis: mapping demographics, behaviours, goals, and pain points.",
+              },
+              {
+                src: "assets/images/cs-goodgo-scenario.png",
+                cap: "User scenario: a day in Millie's life, grounding the design in real, everyday friction.",
+              },
+              {
+                src: "assets/images/cs-goodgo-userflow.png",
+                cap: "End-to-end user flow, from destination search to arrival, rating, and reporting.",
+              },
+            ],
           ],
-          right: {
-            src: "assets/images/cs-goodgo-userflow.png",
-            cap: "End-to-end user flow, from destination search to arrival, rating, and reporting.",
-          },
         },
         {
           src: "assets/images/cs-goodgo-wireframe.png",
@@ -643,6 +647,11 @@
     veramolnar: {
       title: "How To: Vera Molnár",
       lead: "An interactive introduction that teaches the ideas behind Vera Molnár's generative art by letting you play with the rules that create it.",
+      heroStrip: [
+        "assets/images/cs-howto1.png",
+        "assets/images/cs-howto2.png",
+        "assets/images/cs-howto3.png",
+      ],
       meta: {
         Role: "Interaction design, UX, video",
         Type: "University project",
@@ -652,7 +661,7 @@
       problem:
         "Vera Molnár's work looks simple but rests on algorithmic ideas, such as rules, repetition, and controlled randomness, that are hard to grasp from wall text alone. Newcomers see the output but not the system that produces it.",
       whatIDidIntro:
-        "I designed a guided learning experience that turns her concepts into something you understand by doing, and produced the teaser video that frames the story.",
+        "I designed a guided learning experience that turns her concepts into something you understand by doing, grounded the direction in research and ideation workshops, and produced the teaser video that frames the story.",
       whatIDid: [
         "Mapped a user journey that introduces one generative concept at a time, from ordered grids to her famous '1% disorder'.",
         "Designed interactive learning mechanics where people adjust the rules and watch the composition respond in real time.",
@@ -661,6 +670,25 @@
       ],
       result:
         "The concepts became approachable. Instead of reading about Molnár's methods, visitors could feel how small changes in rules and randomness reshape an entire composition, learning the system rather than just seeing the art.",
+      shots: [
+        {
+          group: "row",
+          items: [
+            {
+              src: "assets/images/cs-howto-research.png",
+              cap: "Ideation board: nine concept directions explored and narrowed through team voting.",
+            },
+            {
+              src: "assets/images/cs-howto-research2.png",
+              cap: "Research synthesis and example outputs, mapping themes from Molnár's work to interaction opportunities.",
+            },
+            {
+              src: "assets/images/cs-howto-prototype.png",
+              cap: "Low-fidelity wireframes for the three chosen directions: ABCEDAIRE, lettres de ma mère, and carrés.",
+            },
+          ],
+        },
+      ],
     },
   };
   const esc = (v) =>
@@ -703,10 +731,16 @@
       const fig = (s) =>
         `<figure${s.wide ? ' class="wide"' : ""}><img src="${esc(s.src)}" alt="${esc(s.cap)}" loading="lazy"><figcaption>${esc(s.cap)}</figcaption></figure>`;
       // A "split" group renders a stacked left column beside a single tall figure on the right.
+      // A "row" group renders small figures in one horizontal line.
+      // A "rows" group stacks multiple compact horizontal lines.
       const renderShot = (s) =>
         s.group === "split"
           ? `<div class="cs-shots-split"><div class="cs-split-main">${s.left.map(fig).join("")}</div><div class="cs-split-side">${fig(s.right)}</div></div>`
-          : fig(s);
+          : s.group === "row"
+            ? `<div class="cs-shots-row">${s.items.map(fig).join("")}</div>`
+            : s.group === "rows"
+              ? `<div class="cs-shots-rows">${s.rows.map((row) => `<div class="cs-shots-row" style="--shot-cols:${row.length}">${row.map(fig).join("")}</div>`).join("")}</div>`
+              : fig(s);
       const shots = cs.shots ? `<div class="cs-shots">${cs.shots.map(renderShot).join("")}</div>` : "";
       sections += `<section class="cs-section"><h2>What I did</h2>${intro}${list}${shots}</section>`;
     }

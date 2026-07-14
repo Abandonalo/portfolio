@@ -3578,6 +3578,39 @@ a.cs-video--facade {
   align-items: start;
   margin: 6px 0 22px;
 }
+/* Compact row: small figures in one horizontal line. */
+.cs-shots-row {
+  column-span: all;
+  display: grid;
+  grid-template-columns: repeat(var(--shot-cols, 3), 1fr);
+  gap: 16px;
+  align-items: start;
+  margin: 6px 0 22px;
+}
+.cs-shots-rows {
+  column-span: all;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 6px 0 22px;
+}
+.cs-shots-rows .cs-shots-row {
+  column-span: unset;
+  margin: 0;
+}
+.cs-shots-row figure {
+  margin: 0;
+}
+.cs-shots-row img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  margin-inline: auto;
+}
+.cs-shots-row figcaption {
+  font-size: 10px;
+  line-height: 1.45;
+}
 .cs-split-main {
   display: flex;
   flex-direction: column;
@@ -3646,6 +3679,14 @@ a.cs-video--facade {
 }
 .cs-hero-collage img:nth-child(even) {
   transform: rotate(3deg) translateY(-2%);
+}
+/* Three-phone collage (How To) — wider panels than the six-screen GoodGo strip. */
+.cs-hero-collage:has(img:nth-child(3):last-child) {
+  width: min(1100px, 100%);
+  gap: 2%;
+}
+.cs-hero-collage:has(img:nth-child(3):last-child) img {
+  width: 28%;
 }
 /* Taller, stronger white veil over the busy phone collage so the title stays readable. */
 .cs-hero-collage:after {
