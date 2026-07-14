@@ -872,7 +872,7 @@ section {
   background-size: 32px 32px;
 }
 .visual-1:after {
-  content: "CHALDENE";
+  content: "INTERACTIVE NO-CODE IMAGE PROCESSING";
   position: absolute;
   left: 9%;
   bottom: 12%;
@@ -906,7 +906,7 @@ section {
     0 0 0 85px var(--ink);
 }
 .visual-2:after {
-  content: "VERA / MOLNÁR";
+  content: "LEARNING GENERATIVE ART BY MAKING IT";
   position: absolute;
   left: 7%;
   bottom: 8%;
@@ -964,10 +964,7 @@ section {
   line-height: 0.8;
   letter-spacing: -0.08em;
 }
-/* SunSlayer card: real corner-screen render on the shared "photo pan" visual class (same
-   as Chaldene) instead of visual-4's CSS-art placeholder, so it gets the same real-image
-   background-position-x scroll pan on the Work page rather than the much subtler --pan-x
-   treatment other CSS-art cards use. */
+
 .case-card[data-project="sunslayer"] .visual-1 {
   background: #0b0b0d url("../images/cs-sunslayer-hero.jpg") 0% center/cover no-repeat;
   transition:
@@ -3491,9 +3488,16 @@ a.cs-video--facade {
 .cs-lead {
   font-size: 18px;
   color: var(--muted);
-  max-width: 600px;
   line-height: 1.7;
   margin: 0 auto;
+}
+.cs-lead-link {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.cs-lead-link:hover {
+  color: var(--ink);
 }
 /* SunSlayer hero: full-bleed render instead of the boxed/veiled treatment other case
    studies use, since the image is dark enough on its own to carry white title text. Height
@@ -3833,8 +3837,7 @@ a.cs-video--facade {
     ),
     radial-gradient(150% 150% at 50% 50%, transparent 58%, rgba(22, 2, 14, 0.2) 100%);
 }
-/* GoodGo's lead runs one line longer than Chaldene's, which lifts the centered
-   title ~15px; nudge it back down so both hero titles sit at the same height. */
+
 .cs-hero:has(.cs-hero-collage) .cs-hero-inner {
   transform: translateY(15px);
 }

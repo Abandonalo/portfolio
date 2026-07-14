@@ -526,108 +526,110 @@
     return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
   }
 
-  // ===== CASE STUDY: full editorial page injected into #csContent. Add projects to caseStudies. =====
+  // ===== CASE STUDY: full editorial page injected into #csContent. =====
   const caseStudies = {
     watch: {
-      title: "Watch & Watched",
-      lead: "An AR installation inspired by Bentham's Panopticon, designed to make surveillance and power legible by letting people embody the observed, the observer, and the outsider.",
+      title: "Embodying Surveillance Through AR",
+      lead: "An AR installation that turns Bentham’s Panopticon from an abstract theory of power into a spatial experience of watching, being watched, and standing outside the system",
       hero: "assets/images/cs-watch-hero.jpg",
       localVideo: "assets/video/cs-watch.mp4",
+      localVideoInResult: true,
       meta: {
-        Role: "Concept design, AR",
-        Type: "Concept project",
-        Focus: "Critical UX, surveillance",
+        Role: "Visual Design, 3D Modeling, Video Production",
+        Type: "University project",
+        Team: "Solo",
+        Duration: "3 months",
       },
-      problem:
-        "Bentham's Panopticon, a prison built so a single unseen inspector can watch every cell, is a well-known theory of power, but it stays abstract on the page. Reading about asymmetric visibility is not the same as feeling watched, or feeling the quiet authority of watching. The theory needed a spatial, first-person form to actually land.",
-      whatIDidIntro:
-        "I modeled the Panopticon's circular cell block and central inspection tower, then designed an AR experience around three distinct vantage points instead of one fixed camera, so the same architecture reads completely differently depending on where you stand.",
+      problemHtml:
+        '<p><a class="cs-lead-link" href="https://en.wikipedia.org/wiki/Jeremy_Bentham" target="_blank" rel="noopener noreferrer">Bentham</a>\'s <a class="cs-lead-link" href="https://en.wikipedia.org/wiki/Panopticon" target="_blank" rel="noopener noreferrer">Panopticon</a>, a prison built so a single unseen inspector can watch every cell, is a well-known theory of power, but it stays abstract on the page. Reading about asymmetric visibility is not the same as feeling watched, or feeling the quiet authority of watching. The theory needed a spatial, first-person form to actually land.</p>',
       whatIDid: [
-        "Modeled the circular Panopticon architecture, spotlighting the inspection tower against rings of cells left mostly in shadow.",
-        "Designed three embodied positions: the observed (inside a cell, bars framing the tower), the observer (looking down from the tower), and the outsider (on the stairwell, seeing the whole apparatus at once).",
-        "Used light and framing rather than UI to communicate power: visibility, concealment, and scale do the explaining.",
-        "Storyboarded and rendered a walkthrough sequence to test whether the shift between positions actually changes how the space feels.",
+        "Modeled the Panopticon’s circular cell structure and central inspection tower as a spatial environment for AR",
+        "Designed three perspectives: the observed inside a cell, the observer positioned in the tower, and the outsider viewing the entire system from the stairwell",
+        "Used restricted sightlines, shadows, bars, distance, and scale to communicate visibility, concealment, and control without relying on explanatory UI",
+        "Produced the walkthrough video to test the transitions between perspectives and refine the emotional contrast between vulnerability, authority, and detachment",
       ],
-      result:
-        "Moving between the three positions turns a textbook concept into something felt: the same architecture reads as exposure from inside a cell, as quiet control from the tower, and as a machine of power once seen from outside it.",
     },
     sunslayer: {
-      title: "SunSlayer",
-      lead: "A spatial animation inspired by Hou Yi shooting the suns, built for a 90° corner screen so the imagery seems to push beyond the physical architecture.",
+      title: "Reimagining a Chinese Myth in Naked-Eye 3D",
+      lead: "A spatial animation inspired by Hou Yi shooting the suns, built for a 90° corner screen to make the story appear to break beyond the physical screen",
       hero: "assets/images/cs-sunslayer-hero.jpg",
       localVideo: "assets/video/cs-sunslayer.mp4",
+      localVideoInResult: true,
       meta: {
-        Role: "3D animation, motion design",
+        Role: "Storyboarding, Visual Design, 3D animation",
         Type: "University project",
+        Team: "Solo",
         Duration: "13 weeks",
-        Tools: "Blender, Geometry Nodes, Mixamo",
       },
       problem:
-        "The brief was a one-minute animation for a 90-degree corner screen, where the illusion of naked-eye 3D only holds up from one 'sweet spot' and breaks the moment the story reads unclearly. The piece needed to be visually spectacular enough to justify an immersive format, concise enough to fit a minute, and legible to a Western audience unfamiliar with the source myth.",
-      whatIDidIntro:
-        "I adapted the Chinese legend of Hou Yi and the Ten Suns, the archer who shot down nine of ten suns to save the world, into a spatial story engineered around the corner screen's geometry, then spent 13 weeks in Blender building, rigging, and refining it through a live test screening.",
+        "The Hou Yi myth is visually powerful but unfamiliar to many Western audiences: ten suns rise at once and scorch the earth, forcing the legendary archer to shoot down nine and restore balance. \n\n The challenge was to communicate this complete narrative in roughly one minute while designing specifically for a fixed 90-degree corner screen. The animation needed to remain readable from a defined viewing position, create a convincing illusion of depth, and account for real architectural constraints.",
       whatIDid: [
-        "Reimagined the myth as a one-minute story staged across the 90° fold, using the corner's spatial split to stage foreground and background action.",
-        "Built and rigged a custom three-legged crow and a Hou Yi archer character, iterating from a hybrid custom rig to a native Mixamo character once the original produced mesh deformation.",
-        "Used Geometry Nodes to morph the crow into a sun via raycasting, and Cell Fracture simulations to shatter suns and crows into floating, physics-driven debris.",
-        "Choreographed arrow-splitting mechanics and sequential explosions so all nine suns register as distinct beats instead of one simultaneous blast.",
-        "Tuned lighting, pacing, and typography after a test screening to keep the story legible on the distorted screen surface and around the pillars obstructing it.",
+        "Storyboarded the animation around the geometry of the corner screen and tested its perspective from the intended viewing “sweet spot”",
+        "Structured the scene across foreground and background layers to create the illusion of objects entering and leaving the architectural space",
+        "Built the environment, fire effects, suns, character animation, lighting, camera movement, and overall visual composition in Blender",
+        "Created a custom three-legged crow by modifying and rigging an existing bird asset, then added a procedural burning effect",
+        "Used Cell Fracture and rigid-body physics to shatter the suns and crows, with debris interacting with the virtual walls",
+        "Tuned lighting, pacing, and typography after test screenings to keep the story legible on the distorted screen surface",
       ],
-      result:
-        "The final piece compresses an epic myth into under a minute, using staged lighting, layered fracture effects, and arrows and debris that fly past the physical frame to make the corner screen feel like a window into the story rather than a flat display.",
     },
     chaldene: {
-      title: "Chaldene",
-      lead: "A node-based visual programming environment that makes complex image-processing pipelines observable, tunable, and approachable.",
+      title: "Interactive No-Code Image Processing",
+      lead: "Turning a static workflow editor into a more expressive workspace for scientific image analysis",
       hero: "assets/images/cs-chaldene-workflow.jpg",
       meta: {
-        Role: "UX & frontend, research assistant",
-        Team: "DFKI HCI group",
-        Duration: "2024 to 2025",
-        Company: "DFKI",
+        Role: "Research, Visual Design, UX Design, Full Stack Engineering, Video Production",
+        Type: "Internship project",
+        Team: "DFKI  Agents and Simulated Reality group",
+        Duration: "10 months",
+        Company: "DFKI (German Research Center for Artificial Intelligence)",
       },
       problem:
-        "Researchers with limited programming experience needed to build and tune image-processing pipelines, but the tools made it hard to see what each step did or to explore parameters without rewriting code.",
+        "Chaldene is a node-based visual programming environment for building and running image-processing workflows directly in JupyterLab. Instead of writing Python code manually, researchers connect visual nodes that represent operations such as loading, filtering, thresholding, and analysing images. \n\nWhile Chaldene made complex pipelines easier to construct, it was still difficult to explore their results. Most parameters relied on text fields, previews were small and static, and comparing outputs required users to remember previous states or use external tools. This weakened the feedback loop between adjusting a parameter and understanding its visual effect, making iterative experimentation slower and subtle differences harder to detect.",
       whatIDidIntro:
-        "I extended Chaldene, a node-based visual programming language in JupyterLab, working directly with researchers to turn their needs into interaction concepts and shipping the features across the frontend and backend.",
+        "I translated existing formative research and HCI principles into five design goals: support direct interaction, reduce cognitive load, provide richer visual feedback, improve comparison and inspection, and maintain responsive system behaviour.",
       whatIDid: [
-        "Batch processing to run a finished pipeline across a whole folder of images.",
-        "Direct-manipulation cropping: drag a box on the image or type exact values.",
-        "Per-node difference maps that show exactly what each step changed.",
-        "Grid search to sweep parameter ranges and compare every result in a gallery.",
+        "Interactive file selectors, hybrid sliders, histogram range controls, visual cropper",
+        "Canvas-based image viewer with synchronised pan, cursor-centred zoom, and full-screen inspection",
+        "In-node difference map that highlights the exact effect of an operation",
+        "Batch-processing interface for selecting and managing image collections",
+        "Grid-search workflow for generating, comparing, and applying parameter combinations",
+        "More efficient image transfer between the React frontend and Python backend"
       ],
       result:
-        "The pipelines became observable, tunable, and approachable. Researchers could see each step's effect, explore parameter ranges visually, and adjust workflows without touching code.",
+        "Researchers can tune parameters visually, inspect fine details without leaving the workflow, compare an operation’s input and output in context, process multiple images, and evaluate parameter combinations side by side before applying the strongest result back to the pipeline. The underlying node specification was also extended to make future interactive widgets easier and more scalable to integrate.",
       video: "xu5FFn5Igi4",
+      videoInResult: true,
       shots: [
         {
-          src: "assets/images/cs-chaldene-batch.jpg",
-          cap: "Batch process: run a pipeline over a folder and preview every result.",
-        },
-        {
-          src: "assets/images/cs-chaldene-crop.jpg",
-          cap: "Cropping: an on-node widget with input fields, plus an interactive dialog.",
-        },
-        {
-          src: "assets/images/cs-chaldene-diff.jpg",
-          cap: "Binary dilation node with an optional difference map (green shows what changed).",
-          wide: true,
-        },
-        {
-          src: "assets/images/cs-chaldene-gridsearch.jpg",
-          cap: "Grid search: define parameter ranges and preview each combination.",
-          wide: true,
-        },
-        {
-          src: "assets/images/cs-chaldene-gallery.jpg",
-          cap: "Grid search gallery: compare the full matrix of outputs at a glance.",
-          wide: true,
+          group: "rows",
+          rows: [
+            [
+              {
+                src: "assets/images/cs-chaldene-batch.jpg",
+                cap: "Batch process",
+              },
+              {
+                src: "assets/images/cs-chaldene-crop.jpg",
+                cap: "Cropping",
+              },
+            ],
+            [
+              {
+                src: "assets/images/cs-chaldene-diff.jpg",
+                cap: "Difference map",
+              },
+              {
+                src: "assets/images/cs-chaldene-gallery.jpg",
+                cap: "Grid search gallery: compare the full matrix of outputs at a glance",
+              },
+            ],
+          ],
         },
       ],
     },
     goodgo: {
-      title: "GoodGo Map",
-      lead: "An accessible navigation concept that replaces generic walking directions with wheeling-specific route effort, facility intelligence, and community reporting.",
+      title: "Navigation Designed Around Wheeling",
+      lead: "A navigation experience that makes accessibility visible at first glance",
       heroStrip: [
         "assets/images/cs-goodgo-hero.png",
         "assets/images/cs-goodgo-drive.png",
@@ -637,24 +639,26 @@
         "assets/images/cs-goodgo-wheel.png",
       ],
       meta: {
-        Role: "UX research & product design",
-        Type: "Concept project",
-        Focus: "Accessibility",
-        Tools: "Figma, user study",
+        Role: "UX Research, Product Design",
+        Type: "University project",
+        Team: "Two-person team",
+        Duration: "2 months",
+ 
       },
       problem:
-        "Mainstream map apps assume walking. Wheelchair users are left guessing about kerbs, steps, ramps, lifts, and accessible toilets, and about how much physical effort a route really takes. The few accessibility apps that exist bury this information behind filters or cover too little to plan a real trip.",
+        "Mainstream navigation platforms often bury accessibility information inside long lists of filters, making essential details difficult to find when users need them most. Dedicated accessibility apps make this information more visible, but frequently focus on individual facilities rather than supporting the complete travel journey. \n\nWheelchair users therefore have to combine several tools to answer basic questions: Is the route manageable? Is there a ramp or elevator? Is the accessible toilet currently usable? Can the destination actually be entered independently? \n\nThe challenge was to create an experience that makes accessibility visible at first glance while still providing the breadth of information expected from a general travel and navigation app.",
       whatIDidIntro:
-        "I designed GoodGo around how wheelchair users actually plan and move, grounding every feature in a persona, survey data, and a competitive teardown before shaping the flows and screens.",
+        "I designed GoodGo around how wheelchair users actually plan and move.",
       whatIDid: [
-        "Ran a survey and built a wheelchair-user persona to anchor the needs, pain points, and motivations.",
-        "Audited competitors (Rong Chang, Wheelmap) to find the gaps in accessible navigation.",
-        "Mapped an information architecture and end-to-end user flow covering search, routing, facilities, and reporting.",
-        "Designed wheeling-specific routing with 'wheel intensity', effort-based route options, and accessible-parking destinations.",
-        "Added facility detail pages, accessible-facility filters, and a lightweight problem-reporting flow for community upkeep.",
+        "Ran a survey and built a wheelchair-user persona to anchor the needs, pain points, and motivations",
+        "Audited competitors to find the gaps in accessible navigation",
+        "Wheeling mode that replaces walking assumptions with route-specific information about ramps, elevators, services, and possible barriers",
+        "Designed wheeling-specific routing with 'wheel intensity', effort-based route options, and accessible-parking destinations",
+        "Detailed accessibility information for facilities and destinations",
+        "Community-driven reporting system through which users can flag missing, inaccurate, or outdated accessibility information",
       ],
       result:
-        "GoodGo turns accessibility from an afterthought into the core of the routing experience, surfacing effort, facilities, and reliability up front so wheelchair users can plan a trip with confidence instead of guesswork.",
+        "The final prototype brings route planning, destination assessment, accessible facilities, and community knowledge into one coherent journey. Instead of searching through filters or switching between multiple specialised apps, users can quickly assess whether a route and destination fit their individual mobility needs.",
       shots: [
         {
           group: "rows",
@@ -662,29 +666,29 @@
             [
               {
                 src: "assets/images/cs-goodgo-survey.png",
-                cap: "Survey results: which accessibility information matters most and how wheelchair users plan trips.",
+                cap: "Survey results",
               },
               {
                 src: "assets/images/cs-goodgo-research.png",
-                cap: "Competitive audit of Rong Chang and Wheelmap, plus the resulting information architecture.",
+                cap: "Competitive audit",
               },
               {
                 src: "assets/images/cs-goodgo-userflow.png",
-                cap: "End-to-end user flow, from destination search to arrival, rating, and reporting.",
+                cap: "End-to-end user flow",
               },
             ],
             [
               {
                 src: "assets/images/cs-goodgo-scenario.png",
-                cap: "User scenario: a day in Millie's life, grounding the design in real, everyday friction.",
+                cap: "User scenario",
               },
               {
                 src: "assets/images/cs-goodgo-persona2.png",
-                cap: "Persona synthesis: mapping demographics, behaviours, goals, and pain points.",
+                cap: "Persona synthesis",
               },
               {
                 src: "assets/images/cs-goodgo-wireframe.png",
-                cap: "Low-fidelity wireframes exploring the core screens and navigation.",
+                cap: "Low-fidelity wireframes",
               },
             ],
           ],
@@ -692,46 +696,47 @@
       ],
     },
     veramolnar: {
-      title: "How To: Vera Molnár",
-      lead: "An interactive introduction that teaches the ideas behind Vera Molnár's generative art by letting you play with the rules that create it.",
+      title: "Learning Art by Making It",
+      lead: "An interactive introduction to the ideas behind Vera Molnár's generative art by letting users play with the rules that created it",
       heroStrip: [
         "assets/images/cs-howto1.png",
         "assets/images/cs-howto2.png",
         "assets/images/cs-howto3.png",
       ],
+      hero: "assets/images/cs-howto1.png",
+      localVideo: "assets/video/cs-howto.mp4",
+      localVideoInResult: true,
       meta: {
-        Role: "Interaction design, UX, video",
+        Role: "Research, UI Design, Implementation, Video Production",
         Type: "University project",
-        Duration: "2022 to 2023",
-        Focus: "Learning experience",
+        Team: "Three-person team",
+        Duration: "5 months",
       },
-      problem:
-        "Vera Molnár's work looks simple but rests on algorithmic ideas, such as rules, repetition, and controlled randomness, that are hard to grasp from wall text alone. Newcomers see the output but not the system that produces it.",
-      whatIDidIntro:
-        "I designed a guided learning experience that turns her concepts into something you understand by doing, grounded the direction in research and ideation workshops, and produced the teaser video that frames the story.",
+      problemHtml:
+        '<p><a class="cs-lead-link" href="https://en.wikipedia.org/wiki/Vera_Moln%C3%A1r" target="_blank" rel="noopener noreferrer">Vera Molnár</a>\'s work is driven by systems: grids, repetition, geometric transformation, controlled randomness, and computational rules. These ideas can be difficult to communicate through conventional artwork descriptions because the creative process remains invisible.</p>',
       whatIDid: [
-        "Mapped a user journey that introduces one generative concept at a time, from ordered grids to her famous '1% disorder'.",
-        "Designed interactive learning mechanics where people adjust the rules and watch the composition respond in real time.",
-        "Translated art-historical concepts into plain, playful interaction language.",
-        "Produced and edited the teaser video to set the tone and invite people in.",
+        "Mapped a user journey that introduces one generative concept at a time",
+        "Designed interactive learning mechanics where users adjust the rules and watch the composition respond in real time",
+        "Implemented the app and learning experience in JavaScript and HTML",
+        "Produced and edited the teaser video",
       ],
-      result:
-        "The concepts became approachable. Instead of reading about Molnár's methods, visitors could feel how small changes in rules and randomness reshape an entire composition, learning the system rather than just seeing the art.",
+      resultHtml:
+        'Instead of reading about Molnár\'s methods, the application helps users understand the thinking behind it. The project was developed as an extension of the <a class="cs-lead-link" href="https://institut-aktuelle-kunst.de" target="_blank" rel="noopener noreferrer">Institute for Contemporary Art in Saarlouis</a>\'s existing artist-learning platform.',
       shots: [
         {
           group: "row",
           items: [
             {
               src: "assets/images/cs-howto-research.png",
-              cap: "Ideation board: nine concept directions explored and narrowed through team voting.",
+              cap: "Ideation board",
             },
             {
               src: "assets/images/cs-howto-research2.png",
-              cap: "Research synthesis and example outputs, mapping themes from Molnár's work to interaction opportunities.",
+              cap: "Research synthesis and example outputs",
             },
             {
               src: "assets/images/cs-howto-prototype.png",
-              cap: "Low-fidelity wireframes for the three chosen directions: ABCEDAIRE, lettres de ma mère, and carrés.",
+              cap: "Low-fidelity wireframes",
             },
           ],
         },
@@ -743,10 +748,17 @@
       /[&<>"]/g,
       (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
     );
+  const formatParagraphs = (text) =>
+    String(text)
+      .split(/\n\s*\n/)
+      .map((p) => p.trim())
+      .filter(Boolean)
+      .map((p) => `<p>${esc(p)}</p>`)
+      .join("");
   function buildCaseStudy(key, card) {
     const cs = caseStudies[key] || {};
     const title = esc(cs.title || card.dataset.title || "Case study");
-    const lead = esc(cs.lead || card.dataset.subtitle || "");
+    const lead = cs.leadHtml || esc(cs.lead || card.dataset.subtitle || "");
     const heroImg = cs.heroStrip
       ? `<div class="cs-hero-media cs-hero-collage">${cs.heroStrip.map((s) => `<img src="${esc(s)}" alt="" loading="eager">`).join("")}</div>`
       : cs.hero
@@ -766,16 +778,27 @@
     } else {
       meta = `<aside class="cs-meta"><div><span class="cs-meta-label">Project</span><span class="cs-meta-val">${esc(card.dataset.title)}</span></div></aside>`;
     }
-    const videoBlock = cs.localVideo
-      ? `<section class="cs-section cs-media"><video class="cs-video-native" controls playsinline preload="metadata"${cs.hero ? ` poster="${esc(cs.hero)}"` : ""}><source src="${esc(cs.localVideo)}" type="video/mp4"></video></section>`
-      : cs.video
-        ? `<section class="cs-section cs-media"><a class="cs-video cs-video--facade" href="https://www.youtube.com/watch?v=${esc(cs.video)}" target="_blank" rel="noopener noreferrer" data-video="${esc(cs.video)}" aria-label="Play the walkthrough"><img src="https://i.ytimg.com/vi/${esc(cs.video)}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${esc(cs.video)}/hqdefault.jpg'" alt="Video thumbnail" loading="lazy"><span class="cs-play" aria-hidden="true"></span></a></section>`
-        : "";
+    const nativeVideo = cs.localVideo
+      ? `<video class="cs-video-native" controls playsinline preload="metadata"${cs.hero ? ` poster="${esc(cs.hero)}"` : ""}><source src="${esc(cs.localVideo)}" type="video/mp4"></video>`
+      : "";
+    const youtubeVideo = cs.video
+      ? `<a class="cs-video cs-video--facade" href="https://www.youtube.com/watch?v=${esc(cs.video)}" target="_blank" rel="noopener noreferrer" data-video="${esc(cs.video)}" aria-label="Play the walkthrough"><img src="https://i.ytimg.com/vi/${esc(cs.video)}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${esc(cs.video)}/hqdefault.jpg'" alt="Video thumbnail" loading="lazy"><span class="cs-play" aria-hidden="true"></span></a>`
+      : "";
+    const videoInResult = cs.videoInResult || cs.localVideoInResult;
+    const videoBlock =
+      cs.localVideo && !videoInResult
+        ? `<section class="cs-section cs-media">${nativeVideo}</section>`
+        : cs.video && !videoInResult
+          ? `<section class="cs-section cs-media">${youtubeVideo}</section>`
+          : "";
     let sections = "";
-    const problem = cs.problem || card.dataset.description;
-    if (problem) sections += `<section class="cs-section"><h2>Problem</h2><p>${esc(problem)}</p></section>`;
+    const problem = cs.problemHtml || cs.problem || card.dataset.description;
+    if (problem)
+      sections += cs.problemHtml
+        ? `<section class="cs-section"><h2>Problem</h2>${cs.problemHtml}</section>`
+        : `<section class="cs-section"><h2>Problem</h2>${formatParagraphs(problem)}</section>`;
     if (cs.whatIDidIntro || cs.whatIDid || cs.shots) {
-      const intro = cs.whatIDidIntro ? `<p>${esc(cs.whatIDidIntro)}</p>` : "";
+      const intro = cs.whatIDidIntro ? formatParagraphs(cs.whatIDidIntro) : "";
       const list = cs.whatIDid ? `<ul>${cs.whatIDid.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>` : "";
       const fig = (s) =>
         `<figure${s.wide ? ' class="wide"' : ""}><img src="${esc(s.src)}" alt="${esc(s.cap)}" loading="lazy"><figcaption>${esc(s.cap)}</figcaption></figure>`;
@@ -793,7 +816,15 @@
       const shots = cs.shots ? `<div class="cs-shots">${cs.shots.map(renderShot).join("")}</div>` : "";
       sections += `<section class="cs-section"><h2>What I did</h2>${intro}${list}${shots}</section>`;
     }
-    if (cs.result) sections += `<section class="cs-section"><h2>Result</h2><p>${esc(cs.result)}</p></section>`;
+    const resultVideo = videoInResult
+      ? `<div class="cs-media">${cs.localVideo ? nativeVideo : youtubeVideo}</div>`
+      : "";
+    if (cs.resultHtml)
+      sections += `<section class="cs-section"><h2>Result</h2><p>${cs.resultHtml}</p>${resultVideo}</section>`;
+    else if (cs.result)
+      sections += `<section class="cs-section"><h2>Result</h2>${formatParagraphs(cs.result)}${resultVideo}</section>`;
+    else if (videoInResult && (cs.localVideo || cs.video))
+      sections += `<section class="cs-section"><h2>Result</h2>${resultVideo}</section>`;
     const order = cards.map((c) => c.dataset.project),
       titles = Object.fromEntries(cards.map((c) => [c.dataset.project, c.dataset.title]));
     const idx = order.indexOf(key),
