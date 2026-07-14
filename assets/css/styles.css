@@ -964,6 +964,31 @@ section {
   line-height: 0.8;
   letter-spacing: -0.08em;
 }
+/* SunSlayer card: real corner-screen render on the shared "photo pan" visual class (same
+   as Chaldene) instead of visual-4's CSS-art placeholder, so it gets the same real-image
+   background-position-x scroll pan on the Work page rather than the much subtler --pan-x
+   treatment other CSS-art cards use. */
+.case-card[data-project="sunslayer"] .visual-1 {
+  background: #0b0b0d url("../images/cs-sunslayer-hero.jpg") 0% center/cover no-repeat;
+  transition:
+    transform 0.7s var(--ease),
+    background-position-x 0.2s linear;
+}
+.case-card[data-project="sunslayer"] .visual-1:before,
+.case-card[data-project="sunslayer"] .visual-1:after {
+  content: none;
+}
+/* Watch & Watched card: same real-photo pan treatment as SunSlayer. */
+.case-card[data-project="watch"] .visual-1 {
+  background: #0b0b0d url("../images/cs-watch-hero.jpg") 0% center/cover no-repeat;
+  transition:
+    transform 0.7s var(--ease),
+    background-position-x 0.2s linear;
+}
+.case-card[data-project="watch"] .visual-1:before,
+.case-card[data-project="watch"] .visual-1:after {
+  content: none;
+}
 .visual-5 {
   background: var(--paper);
 }
@@ -3313,6 +3338,17 @@ body.profile-open {
   height: 100%;
   border: 0;
 }
+.cs-video-native {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.74 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.25);
+}
 a.cs-video--facade {
   cursor: pointer;
   text-decoration: none;
@@ -3459,6 +3495,41 @@ a.cs-video--facade {
   line-height: 1.7;
   margin: 0 auto;
 }
+/* SunSlayer hero: full-bleed render instead of the boxed/veiled treatment other case
+   studies use, since the image is dark enough on its own to carry white title text. Height
+   and padding stay at the base .cs-hero values so the title lines up with the other pages. */
+.cs-hero[data-project="sunslayer"] .cs-hero-media {
+  inset: 0;
+  left: 0;
+  top: 0;
+  transform: none;
+  width: 100%;
+  height: 100%;
+}
+.cs-hero[data-project="sunslayer"] .cs-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Fix: no top fade - the image runs flush to the very top of the page, under the fixed
+     header, instead of leaving a paper-colored gap before it starts. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+}
+.cs-hero[data-project="sunslayer"] .cs-hero-media:after {
+  /* Slight dark filter over the whole render, layered under the bottom fade, so the white
+     title/lead keep contrast against the brighter parts of the image. */
+  background:
+    linear-gradient(to bottom, transparent 0%, transparent 78%, var(--paper) 100%),
+    rgba(0, 0, 0, 0.28);
+}
+.cs-hero[data-project="sunslayer"] .cs-title,
+.cs-hero[data-project="sunslayer"] .cs-lead {
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+.cs-hero[data-project="sunslayer"] .cs-lead {
+  color: rgba(255, 255, 255, 0.86);
+}
 .cs-body {
   width: min(1160px, calc(100% - 40px));
   margin: 0 auto;
@@ -3554,7 +3625,10 @@ a.cs-video--facade {
   background: #fff;
   box-shadow: 0 12px 30px rgba(22, 2, 14, 0.1);
 }
-.cs-shots figure:not(.wide) img {
+/* Fix: scoped to direct children only, so this doesn't out-specificity (and blow past) the
+   smaller max-height set on .cs-shots-row/.cs-shots-rows thumbnails below - those images
+   don't need to render 400px+ tall to show their detail. */
+.cs-shots > figure:not(.wide) img {
   width: auto;
   max-width: 100%;
   max-height: 440px;
@@ -3603,9 +3677,16 @@ a.cs-video--facade {
 }
 .cs-shots-row img {
   width: 100%;
-  max-height: 160px;
+  max-height: 220px;
   object-fit: contain;
   margin-inline: auto;
+}
+/* A lone image in its own row (e.g. a wide diagram) shouldn't stretch its bordered box to
+   the full row width - shrink-wrap to the actual scaled-down content instead so it reads
+   as one small, tidy card like the rest of the grid. */
+.cs-shots-row:has(> figure:only-child) img {
+  width: auto;
+  max-width: 100%;
 }
 .cs-shots-row figcaption {
   font-size: 10px;
@@ -3680,13 +3761,65 @@ a.cs-video--facade {
 .cs-hero-collage img:nth-child(even) {
   transform: rotate(3deg) translateY(-2%);
 }
-/* Three-phone collage (How To) — wider panels than the six-screen GoodGo strip. */
+/* Three-phone collage (How To) — wider panels than the six-screen GoodGo strip. Soft-edged
+   and overlapping instead of GoodGo's bordered cards, so the three dissolve into each other
+   and into the page background rather than reading as separate framed screenshots. */
 .cs-hero-collage:has(img:nth-child(3):last-child) {
   width: min(1100px, 100%);
-  gap: 2%;
+  gap: 0;
 }
 .cs-hero-collage:has(img:nth-child(3):last-child) img {
-  width: 28%;
+  width: 30%;
+  margin-inline: -1%;
+  /* Fix: source images vary wildly in aspect ratio (one is a wide slide screenshot with
+     grey chrome + a text label baked in). A fixed portrait box + cover crops every panel
+     down to just its pattern, so the three read as one consistent set. */
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  filter: blur(0.5px);
+  mask-image: radial-gradient(ellipse 75% 72% at 50% 50%, #000 60%, transparent 92%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 72% at 50% 50%, #000 60%, transparent 92%);
+  mix-blend-mode: multiply;
+}
+/* cs-howto2 is that wide slide; aim the crop at its clean square-pattern panels and skip
+   the grey background, phone bezel, and "Beispielergebnisse" label. Scoped to this project
+   only so it doesn't affect other case studies reusing the same 3-image collage. */
+.cs-hero[data-project="veramolnar"] .cs-hero-collage img:nth-child(2) {
+  object-position: 32% 48%;
+}
+/* Watch & Watched hero: full-bleed single render, same treatment as SunSlayer - the image is
+   dark enough on its own to carry white title text. */
+.cs-hero[data-project="watch"] .cs-hero-media {
+  inset: 0;
+  left: 0;
+  top: 0;
+  transform: none;
+  width: 100%;
+  height: 100%;
+}
+.cs-hero[data-project="watch"] .cs-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+}
+.cs-hero[data-project="watch"] .cs-hero-media:after {
+  /* Slight dark filter over the whole render, layered under the bottom fade, so the white
+     title/lead keep contrast against the brighter parts of the image. */
+  background:
+    linear-gradient(to bottom, transparent 0%, transparent 78%, var(--paper) 100%),
+    rgba(0, 0, 0, 0.28);
+}
+.cs-hero[data-project="watch"] .cs-title,
+.cs-hero[data-project="watch"] .cs-lead {
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+.cs-hero[data-project="watch"] .cs-lead {
+  color: rgba(255, 255, 255, 0.86);
 }
 /* Taller, stronger white veil over the busy phone collage so the title stays readable. */
 .cs-hero-collage:after {

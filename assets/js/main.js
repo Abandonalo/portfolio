@@ -528,6 +528,54 @@
 
   // ===== CASE STUDY: full editorial page injected into #csContent. Add projects to caseStudies. =====
   const caseStudies = {
+    watch: {
+      title: "Watch & Watched",
+      lead: "An AR installation inspired by Bentham's Panopticon, designed to make surveillance and power legible by letting people embody the observed, the observer, and the outsider.",
+      hero: "assets/images/cs-watch-hero.jpg",
+      localVideo: "assets/video/cs-watch.mp4",
+      meta: {
+        Role: "Concept design, AR",
+        Type: "Concept project",
+        Focus: "Critical UX, surveillance",
+      },
+      problem:
+        "Bentham's Panopticon, a prison built so a single unseen inspector can watch every cell, is a well-known theory of power, but it stays abstract on the page. Reading about asymmetric visibility is not the same as feeling watched, or feeling the quiet authority of watching. The theory needed a spatial, first-person form to actually land.",
+      whatIDidIntro:
+        "I modeled the Panopticon's circular cell block and central inspection tower, then designed an AR experience around three distinct vantage points instead of one fixed camera, so the same architecture reads completely differently depending on where you stand.",
+      whatIDid: [
+        "Modeled the circular Panopticon architecture, spotlighting the inspection tower against rings of cells left mostly in shadow.",
+        "Designed three embodied positions: the observed (inside a cell, bars framing the tower), the observer (looking down from the tower), and the outsider (on the stairwell, seeing the whole apparatus at once).",
+        "Used light and framing rather than UI to communicate power: visibility, concealment, and scale do the explaining.",
+        "Storyboarded and rendered a walkthrough sequence to test whether the shift between positions actually changes how the space feels.",
+      ],
+      result:
+        "Moving between the three positions turns a textbook concept into something felt: the same architecture reads as exposure from inside a cell, as quiet control from the tower, and as a machine of power once seen from outside it.",
+    },
+    sunslayer: {
+      title: "SunSlayer",
+      lead: "A spatial animation inspired by Hou Yi shooting the suns, built for a 90° corner screen so the imagery seems to push beyond the physical architecture.",
+      hero: "assets/images/cs-sunslayer-hero.jpg",
+      localVideo: "assets/video/cs-sunslayer.mp4",
+      meta: {
+        Role: "3D animation, motion design",
+        Type: "University project",
+        Duration: "13 weeks",
+        Tools: "Blender, Geometry Nodes, Mixamo",
+      },
+      problem:
+        "The brief was a one-minute animation for a 90-degree corner screen, where the illusion of naked-eye 3D only holds up from one 'sweet spot' and breaks the moment the story reads unclearly. The piece needed to be visually spectacular enough to justify an immersive format, concise enough to fit a minute, and legible to a Western audience unfamiliar with the source myth.",
+      whatIDidIntro:
+        "I adapted the Chinese legend of Hou Yi and the Ten Suns, the archer who shot down nine of ten suns to save the world, into a spatial story engineered around the corner screen's geometry, then spent 13 weeks in Blender building, rigging, and refining it through a live test screening.",
+      whatIDid: [
+        "Reimagined the myth as a one-minute story staged across the 90° fold, using the corner's spatial split to stage foreground and background action.",
+        "Built and rigged a custom three-legged crow and a Hou Yi archer character, iterating from a hybrid custom rig to a native Mixamo character once the original produced mesh deformation.",
+        "Used Geometry Nodes to morph the crow into a sun via raycasting, and Cell Fracture simulations to shatter suns and crows into floating, physics-driven debris.",
+        "Choreographed arrow-splitting mechanics and sequential explosions so all nine suns register as distinct beats instead of one simultaneous blast.",
+        "Tuned lighting, pacing, and typography after a test screening to keep the story legible on the distorted screen surface and around the pillars obstructing it.",
+      ],
+      result:
+        "The final piece compresses an epic myth into under a minute, using staged lighting, layered fracture effects, and arrows and debris that fly past the physical frame to make the corner screen feel like a window into the story rather than a flat display.",
+    },
     chaldene: {
       title: "Chaldene",
       lead: "A node-based visual programming environment that makes complex image-processing pipelines observable, tunable, and approachable.",
@@ -620,27 +668,26 @@
                 src: "assets/images/cs-goodgo-research.png",
                 cap: "Competitive audit of Rong Chang and Wheelmap, plus the resulting information architecture.",
               },
-            ],
-            [
-              {
-                src: "assets/images/cs-goodgo-persona2.png",
-                cap: "Persona synthesis: mapping demographics, behaviours, goals, and pain points.",
-              },
-              {
-                src: "assets/images/cs-goodgo-scenario.png",
-                cap: "User scenario: a day in Millie's life, grounding the design in real, everyday friction.",
-              },
               {
                 src: "assets/images/cs-goodgo-userflow.png",
                 cap: "End-to-end user flow, from destination search to arrival, rating, and reporting.",
               },
             ],
+            [
+              {
+                src: "assets/images/cs-goodgo-scenario.png",
+                cap: "User scenario: a day in Millie's life, grounding the design in real, everyday friction.",
+              },
+              {
+                src: "assets/images/cs-goodgo-persona2.png",
+                cap: "Persona synthesis: mapping demographics, behaviours, goals, and pain points.",
+              },
+              {
+                src: "assets/images/cs-goodgo-wireframe.png",
+                cap: "Low-fidelity wireframes exploring the core screens and navigation.",
+              },
+            ],
           ],
-        },
-        {
-          src: "assets/images/cs-goodgo-wireframe.png",
-          cap: "Low-fidelity wireframes exploring the core screens and navigation.",
-          wide: true,
         },
       ],
     },
@@ -719,9 +766,11 @@
     } else {
       meta = `<aside class="cs-meta"><div><span class="cs-meta-label">Project</span><span class="cs-meta-val">${esc(card.dataset.title)}</span></div></aside>`;
     }
-    const videoBlock = cs.video
-      ? `<section class="cs-section cs-media"><a class="cs-video cs-video--facade" href="https://www.youtube.com/watch?v=${esc(cs.video)}" target="_blank" rel="noopener noreferrer" data-video="${esc(cs.video)}" aria-label="Play the walkthrough"><img src="https://i.ytimg.com/vi/${esc(cs.video)}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${esc(cs.video)}/hqdefault.jpg'" alt="Video thumbnail" loading="lazy"><span class="cs-play" aria-hidden="true"></span></a></section>`
-      : "";
+    const videoBlock = cs.localVideo
+      ? `<section class="cs-section cs-media"><video class="cs-video-native" controls playsinline preload="metadata"${cs.hero ? ` poster="${esc(cs.hero)}"` : ""}><source src="${esc(cs.localVideo)}" type="video/mp4"></video></section>`
+      : cs.video
+        ? `<section class="cs-section cs-media"><a class="cs-video cs-video--facade" href="https://www.youtube.com/watch?v=${esc(cs.video)}" target="_blank" rel="noopener noreferrer" data-video="${esc(cs.video)}" aria-label="Play the walkthrough"><img src="https://i.ytimg.com/vi/${esc(cs.video)}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${esc(cs.video)}/hqdefault.jpg'" alt="Video thumbnail" loading="lazy"><span class="cs-play" aria-hidden="true"></span></a></section>`
+        : "";
     let sections = "";
     const problem = cs.problem || card.dataset.description;
     if (problem) sections += `<section class="cs-section"><h2>Problem</h2><p>${esc(problem)}</p></section>`;
@@ -751,7 +800,7 @@
       nextKey = order[(idx + 1) % order.length];
     const foot = `<footer class="cs-foot"><a class="cs-next" href="#" data-next="${esc(nextKey)}"><span class="cs-eyebrow">Next project</span><b>${esc(titles[nextKey] || "Next")}</b></a><a class="cs-back" href="#">Back to work</a></footer>`;
     return (
-      `<section class="cs-hero">${heroImg}<div class="cs-hero-inner"><h1 class="cs-title" id="csTitle">${title}</h1>${lead ? `<p class="cs-lead">${lead}</p>` : ""}</div></section>` +
+      `<section class="cs-hero" data-project="${esc(key)}">${heroImg}<div class="cs-hero-inner"><h1 class="cs-title" id="csTitle">${title}</h1>${lead ? `<p class="cs-lead">${lead}</p>` : ""}</div></section>` +
       `<div class="cs-body">${meta}<div class="cs-main">${videoBlock}${sections}</div></div>` +
       foot
     );
