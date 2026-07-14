@@ -76,8 +76,7 @@
   updateHeaderClock();
   setInterval(updateHeaderClock, 1000);
 
-  // ===== ROLE ROTATOR: edit the rotating job titles in this array (keep the a/an). =====
-  const roles = ["a UX Designer", "a Software Engineer", "an Applied AI Developer", "a Creative Technologist"];
+  const roles = ["UX Engineering", "Full-Stack Development", "AI Integration", "Project Management", "Video Production", "Immersive Experience Design"];
   let roleIndex = 0;
   if (roleWord && !reduceMotion) {
     setInterval(() => {
@@ -1033,6 +1032,20 @@
     }),
   );
   profileClose?.addEventListener("click", () => closeProfile(true));
+  pageHeader?.querySelector(".brand")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (modal?.classList.contains("open")) {
+      closeCase();
+      goHome();
+      return;
+    }
+    if (workView?.classList.contains("open") || profileView?.classList.contains("open")) {
+      const p = selPointFromEvent(e, e.currentTarget);
+      playSelTransition(p.x, p.y, () => goHome());
+      return;
+    }
+    goHome();
+  });
   profileView?.querySelector(".site-header .brand")?.addEventListener("click", (e) => {
     e.preventDefault();
     const p = selPointFromEvent(e, e.currentTarget);
@@ -1227,7 +1240,9 @@
   function goHome() {
     closeWork(false);
     closeProfile(false);
-    if (location.hash) history.pushState(null, "", location.pathname + location.search);
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    document.getElementById("top")?.focus({ preventScroll: true });
   }
   pageHeader?.querySelectorAll('.nav-links a[href="#work"]').forEach((a) =>
     a.addEventListener("click", (e) => {

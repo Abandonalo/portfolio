@@ -2993,7 +2993,7 @@ body.profile-open {
 }
 .comp-row {
   display: grid;
-  grid-template-columns: 60px 220px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 32px;
   align-items: center;
   padding: 18px 32px;
@@ -3032,8 +3032,8 @@ body.profile-open {
 }
 @media (max-width: 720px) {
   .comp-row {
-    grid-template-columns: 44px 1fr;
-    gap: 12px 18px;
+    grid-template-columns: 1fr;
+    gap: 8px;
     padding: 26px 20px;
     margin-left: -20px;
     margin-right: -20px;
