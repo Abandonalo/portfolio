@@ -3793,6 +3793,81 @@ a.cs-video--facade {
 .cs-hero[data-project="veramolnar"] .cs-hero-collage img:nth-child(2) {
   object-position: 32% 48%;
 }
+/* GoodGo's framed-phone PNGs are transparent: a rectangular box-shadow would render as a
+   box behind the cutout, so shadows follow the phone silhouette instead. The collage also
+   fits seven screens now (was six), so each one gets slightly narrower. */
+.case-card[data-project="goodgo"] .strip-track img {
+  border-radius: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 20px 46px rgba(0, 0, 0, 0.45));
+}
+.cs-hero[data-project="goodgo"] .cs-hero-collage img {
+  width: 14%;
+  border-radius: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 26px 60px rgba(22, 2, 14, 0.22));
+}
+
+/* Result screens: device-framed app screens in a swipeable, scroll-snapping strip. The PNGs
+   carry their own iPhone frame on a transparent background, so no border/card box - just a
+   soft drop-shadow that follows the phone silhouette. */
+.cs-screens {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(232px, 56vw);
+  gap: clamp(18px, 2.6vw, 30px);
+  overflow-x: auto;
+  padding: 14px 4px 22px;
+  margin-top: 10px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.cs-screens figure {
+  margin: 0;
+  scroll-snap-align: start;
+}
+.cs-screens img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cs-screens figcaption {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  text-align: center;
+}
+/* Strip variant for rectangular research shots (surveys, wireframes, workflow screens):
+   same swipeable rhythm as the phone strip, but images vary in aspect ratio, so each one
+   keeps a fixed height with natural width and the bordered card look from .cs-shots. */
+.cs-screens--shots {
+  display: flex;
+  align-items: flex-start;
+  column-span: all;
+  margin: 6px 0 0;
+}
+.cs-screens--shots figure {
+  flex: 0 0 auto;
+  max-width: min(560px, 86%);
+}
+.cs-screens--shots img {
+  height: clamp(240px, 34vh, 320px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin-inline: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(22, 2, 14, 0.1);
+  filter: none;
+}
+
 /* Watch & Watched hero: full-bleed single render, same treatment as SunSlayer - the image is
    dark enough on its own to carry white title text. */
 .cs-hero[data-project="watch"] .cs-hero-media {

@@ -600,28 +600,24 @@
       videoInResult: true,
       shots: [
         {
-          group: "rows",
-          rows: [
-            [
-              {
-                src: "assets/images/cs-chaldene-batch.jpg",
-                cap: "Batch process",
-              },
-              {
-                src: "assets/images/cs-chaldene-crop.jpg",
-                cap: "Cropping",
-              },
-            ],
-            [
-              {
-                src: "assets/images/cs-chaldene-diff.jpg",
-                cap: "Difference map",
-              },
-              {
-                src: "assets/images/cs-chaldene-gallery.jpg",
-                cap: "Grid search gallery: compare the full matrix of outputs at a glance",
-              },
-            ],
+          group: "strip",
+          items: [
+            {
+              src: "assets/images/cs-chaldene-batch.jpg",
+              cap: "Batch process",
+            },
+            {
+              src: "assets/images/cs-chaldene-crop.jpg",
+              cap: "Cropping",
+            },
+            {
+              src: "assets/images/cs-chaldene-diff.jpg",
+              cap: "Difference map",
+            },
+            {
+              src: "assets/images/cs-chaldene-gallery.jpg",
+              cap: "Grid search gallery: compare the full matrix of outputs at a glance",
+            },
           ],
         },
       ],
@@ -630,12 +626,13 @@
       title: "Navigation Designed Around Wheeling",
       lead: "A navigation experience that makes accessibility visible at first glance",
       heroStrip: [
-        "assets/images/cs-goodgo-hero.png",
-        "assets/images/cs-goodgo-drive.png",
-        "assets/images/cs-goodgo-info.png",
-        "assets/images/cs-goodgo-preference.png",
-        "assets/images/cs-goodgo-report.png",
-        "assets/images/cs-goodgo-wheel.png",
+        "assets/images/cs-goodgo-1.png",
+        "assets/images/cs-goodgo-5.png",
+        "assets/images/cs-goodgo-7.png",
+        "assets/images/cs-goodgo-2.png",
+        "assets/images/cs-goodgo-4.png",
+        "assets/images/cs-goodgo-3.png",
+        "assets/images/cs-goodgo-6.png",
       ],
       meta: {
         Role: "UX Research, Product Design",
@@ -658,38 +655,64 @@
       ],
       result:
         "The final prototype brings route planning, destination assessment, accessible facilities, and community knowledge into one coherent journey. Instead of searching through filters or switching between multiple specialised apps, users can quickly assess whether a route and destination fit their individual mobility needs.",
+      resultShots: [
+        {
+          src: "assets/images/cs-goodgo-1.png",
+          cap: "Accessibility shortcut on the main map",
+        },
+        {
+          src: "assets/images/cs-goodgo-2.png",
+          cap: "Accessible facilities information",
+        },
+        {
+          src: "assets/images/cs-goodgo-3.png",
+          cap: "Driving mode routes to accessible parking",
+        },
+        {
+          src: "assets/images/cs-goodgo-5.png",
+          cap: "Wheeling mode with accessible facilities information along the route",
+        },
+        {
+          src: "assets/images/cs-goodgo-4.png",
+          cap: "Live status of ramps",
+        },
+        {
+          src: "assets/images/cs-goodgo-7.png",
+          cap: "Trip preference based on wheeling intensity",
+        },
+        {
+          src: "assets/images/cs-goodgo-6.png",
+          cap: "Community-driven reporting system",
+        },
+      ],
       shots: [
         {
-          group: "rows",
-          rows: [
-            [
-              {
-                src: "assets/images/cs-goodgo-survey.png",
-                cap: "Survey results",
-              },
-              {
-                src: "assets/images/cs-goodgo-research.png",
-                cap: "Competitive audit",
-              },
-              {
-                src: "assets/images/cs-goodgo-userflow.png",
-                cap: "End-to-end user flow",
-              },
-            ],
-            [
-              {
-                src: "assets/images/cs-goodgo-scenario.png",
-                cap: "User scenario",
-              },
-              {
-                src: "assets/images/cs-goodgo-persona2.png",
-                cap: "Persona synthesis",
-              },
-              {
-                src: "assets/images/cs-goodgo-wireframe.png",
-                cap: "Low-fidelity wireframes",
-              },
-            ],
+          group: "strip",
+          items: [
+            {
+              src: "assets/images/cs-goodgo-survey.png",
+              cap: "Survey results",
+            },
+            {
+              src: "assets/images/cs-goodgo-research.png",
+              cap: "Competitive audit",
+            },
+            {
+              src: "assets/images/cs-goodgo-userflow.png",
+              cap: "End-to-end user flow",
+            },
+            {
+              src: "assets/images/cs-goodgo-scenario.png",
+              cap: "User scenario",
+            },
+            {
+              src: "assets/images/cs-goodgo-persona2.png",
+              cap: "Persona synthesis",
+            },
+            {
+              src: "assets/images/cs-goodgo-wireframe.png",
+              cap: "Low-fidelity wireframes",
+            },
           ],
         },
       ],
@@ -723,7 +746,7 @@
         'Instead of reading about Molnár\'s methods, the application helps users understand the thinking behind it. The project was developed as an extension of the <a class="cs-lead-link" href="https://institut-aktuelle-kunst.de" target="_blank" rel="noopener noreferrer">Institute for Contemporary Art in Saarlouis</a>\'s existing artist-learning platform.',
       shots: [
         {
-          group: "row",
+          group: "strip",
           items: [
             {
               src: "assets/images/cs-howto-research.png",
@@ -801,11 +824,14 @@
       const list = cs.whatIDid ? `<ul>${cs.whatIDid.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>` : "";
       const fig = (s) =>
         `<figure${s.wide ? ' class="wide"' : ""}><img src="${esc(s.src)}" alt="${esc(s.cap)}" loading="lazy"><figcaption>${esc(s.cap)}</figcaption></figure>`;
+      // A "strip" group renders figures in a swipeable scroll-snap strip (same as result screens).
       // A "split" group renders a stacked left column beside a single tall figure on the right.
       // A "row" group renders small figures in one horizontal line.
       // A "rows" group stacks multiple compact horizontal lines.
       const renderShot = (s) =>
-        s.group === "split"
+        s.group === "strip"
+          ? `<div class="cs-screens cs-screens--shots">${s.items.map(fig).join("")}</div>`
+          : s.group === "split"
           ? `<div class="cs-shots-split"><div class="cs-split-main">${s.left.map(fig).join("")}</div><div class="cs-split-side">${fig(s.right)}</div></div>`
           : s.group === "row"
             ? `<div class="cs-shots-row">${s.items.map(fig).join("")}</div>`
@@ -818,12 +844,21 @@
     const resultVideo = videoInResult
       ? `<div class="cs-media">${cs.localVideo ? nativeVideo : youtubeVideo}</div>`
       : "";
+    // Final app screens shown under the Result copy as a swipeable strip.
+    const resultScreens = cs.resultShots
+      ? `<div class="cs-screens">${cs.resultShots
+          .map(
+            (s) =>
+              `<figure><img src="${esc(s.src)}" alt="${esc(s.cap)}" loading="lazy"><figcaption>${esc(s.cap)}</figcaption></figure>`,
+          )
+          .join("")}</div>`
+      : "";
     if (cs.resultHtml)
-      sections += `<section class="cs-section"><h2>Result</h2><p>${cs.resultHtml}</p>${resultVideo}</section>`;
+      sections += `<section class="cs-section"><h2>Result</h2><p>${cs.resultHtml}</p>${resultVideo}${resultScreens}</section>`;
     else if (cs.result)
-      sections += `<section class="cs-section"><h2>Result</h2>${formatParagraphs(cs.result)}${resultVideo}</section>`;
+      sections += `<section class="cs-section"><h2>Result</h2>${formatParagraphs(cs.result)}${resultVideo}${resultScreens}</section>`;
     else if (videoInResult && (cs.localVideo || cs.video))
-      sections += `<section class="cs-section"><h2>Result</h2>${resultVideo}</section>`;
+      sections += `<section class="cs-section"><h2>Result</h2>${resultVideo}${resultScreens}</section>`;
     const order = cards.map((c) => c.dataset.project),
       titles = Object.fromEntries(cards.map((c) => [c.dataset.project, c.dataset.title]));
     const idx = order.indexOf(key),
