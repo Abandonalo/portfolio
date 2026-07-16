@@ -574,7 +574,7 @@
     chaldene: {
       title: "Interactive No-Code Image Processing",
       lead: "Turning a static workflow editor into a more expressive workspace for scientific image analysis",
-      hero: "assets/images/cs-chaldene-workflow.jpg",
+      hero: "assets/images/cs-chaldene-workflow.png",
       meta: {
         Role: "Research, Visual Design, UX Design, Full Stack Engineering, Video Production",
         Type: "Internship project",
@@ -838,20 +838,26 @@
             : s.group === "rows"
               ? `<div class="cs-shots-rows">${s.rows.map((row) => `<div class="cs-shots-row" style="--shot-cols:${row.length}">${row.map(fig).join("")}</div>`).join("")}</div>`
               : fig(s);
-      const shots = cs.shots ? `<div class="cs-shots">${cs.shots.map(renderShot).join("")}</div>` : "";
+      const scrollCue =
+        '<div class="cs-shots-cue mono" aria-hidden="true"><span>Scroll</span><span class="cs-shots-cue-arrow"><i></i></span></div>';
+      const shots = cs.shots
+        ? `<div class="cs-shots">${scrollCue}${cs.shots.map(renderShot).join("")}</div>`
+        : "";
       sections += `<section class="cs-section"><h2>What I did</h2>${intro}${list}${shots}</section>`;
     }
     const resultVideo = videoInResult
       ? `<div class="cs-media">${cs.localVideo ? nativeVideo : youtubeVideo}</div>`
       : "";
     // Final app screens shown under the Result copy as a swipeable strip.
+    const resultScrollCue =
+      '<div class="cs-shots-cue mono" aria-hidden="true"><span>Scroll</span><span class="cs-shots-cue-arrow"><i></i></span></div>';
     const resultScreens = cs.resultShots
-      ? `<div class="cs-screens">${cs.resultShots
+      ? `<div class="cs-screens-wrap">${resultScrollCue}<div class="cs-screens">${cs.resultShots
           .map(
             (s) =>
               `<figure><img src="${esc(s.src)}" alt="${esc(s.cap)}" loading="lazy"><figcaption>${esc(s.cap)}</figcaption></figure>`,
           )
-          .join("")}</div>`
+          .join("")}</div></div>`
       : "";
     if (cs.resultHtml)
       sections += `<section class="cs-section"><h2>Result</h2><p>${cs.resultHtml}</p>${resultVideo}${resultScreens}</section>`;
@@ -870,6 +876,31 @@
       foot
     );
   }
+  function bindShotsScrollCue(root) {
+    const bind = (cue, strip) => {
+      if (!cue || !strip) {
+        cue?.remove();
+        return;
+      }
+      const sync = () => {
+        const overflow = strip.scrollWidth - strip.clientWidth > 8;
+        if (!overflow) {
+          cue.classList.add("is-faded");
+          return;
+        }
+        const atEnd = strip.scrollLeft >= strip.scrollWidth - strip.clientWidth - 24;
+        cue.classList.toggle("is-faded", atEnd);
+      };
+      strip.addEventListener("scroll", sync, { passive: true });
+      requestAnimationFrame(sync);
+    };
+    root?.querySelectorAll(".cs-shots").forEach((shots) => {
+      bind(shots.querySelector(".cs-shots-cue"), shots.querySelector(".cs-screens"));
+    });
+    root?.querySelectorAll(".cs-screens-wrap").forEach((wrap) => {
+      bind(wrap.querySelector(".cs-shots-cue"), wrap.querySelector(".cs-screens"));
+    });
+  }
   function openCase(card, animate = true) {
     returnFocus = card;
     const rect = card.getBoundingClientRect();
@@ -880,6 +911,7 @@
     modal.scrollTop = 0;
     caseHeader?.classList.remove("nav-hidden");
     lastCaseY = 0;
+    bindShotsScrollCue(csContent);
     requestAnimationFrame(() => modal.querySelector(".site-header .brand")?.focus?.());
     if (animate && !reduceMotion) {
       modal.animate(
@@ -902,7 +934,6 @@
     returnFocus?.focus?.();
   }
   const cardByProject = (k) => cards.find((c) => c.dataset.project === k);
-  // Delegated clicks inside the case study: video play, next project, back to work.
   csContent?.addEventListener("click", (e) => {
     const facade = e.target.closest(".cs-video--facade");
     if (facade) {
@@ -976,7 +1007,6 @@
       if (v) v.style.translate = "";
     });
     card.addEventListener("click", (e) => {
-      if (!e.target.closest(".fw-card__bottom")) return;
       const p = selPointFromEvent(e, card);
       playSelTransition(p.x, p.y, () => openCase(card));
     });
@@ -1228,7 +1258,6 @@
         if (v) v.style.translate = "";
       });
       card.addEventListener("click", (e) => {
-        if (!e.target.closest(".fw-card__bottom")) return;
         const p = selPointFromEvent(e, card);
         playSelTransition(p.x, p.y, () => openCase(card));
       });
