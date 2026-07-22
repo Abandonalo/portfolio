@@ -735,7 +735,8 @@ section {
 }
 .case-tags {
   display: flex;
-  gap: 7px;
+  align-items: center;
+  gap: 8px 11px;
   flex-wrap: wrap;
   margin-top: 24px;
 }
@@ -838,16 +839,32 @@ section {
   border-right-width: 1.5px;
   border-bottom-width: 1.5px;
 }
+/* Mono spec line with red dot separators (no enclosing rules) instead of pills. */
 .chip {
   display: inline-flex;
-  padding: 7px 13px;
-  border: 1px solid rgba(22, 2, 14, 0.3);
-  border-radius: 999px;
+  align-items: center;
+  gap: 11px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  background: var(--pink-soft);
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.chip::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--red);
+  flex: 0 0 auto;
+}
+.chip:last-child::after {
+  display: none;
 }
 .case-visual {
   position: absolute;
@@ -3076,36 +3093,42 @@ body.profile-open {
 .tool-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  gap: 10px 13px;
 }
+/* Mono spec line with red dot separators (no enclosing rules) instead of pills. */
 .tool-chip {
   display: inline-flex;
   align-items: center;
-  padding: 7px 15px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  background: transparent;
+  gap: 13px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--ink);
   white-space: nowrap;
   cursor: none;
-  transition:
-    background 0.25s var(--ease),
-    border-color 0.25s var(--ease),
-    color 0.25s var(--ease),
-    transform 0.16s var(--ease-out);
+  transition: color 0.25s var(--ease);
 }
-.tool-chip:active {
-  transform: var(--press);
+.tool-chip::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--red);
+  flex: 0 0 auto;
+}
+.tool-chip:last-child::after {
+  display: none;
 }
 @media (hover: hover) and (pointer: fine) {
   .tool-chip:hover {
-    background: #fbd2e1;
-    color: var(--ink);
-    border-color: #fbd2e1;
-    transform: translateY(-2px);
+    color: var(--red);
   }
 }
 
@@ -3503,6 +3526,39 @@ a.cs-video--facade {
 }
 .cs-lead-link:hover {
   color: var(--ink);
+}
+/* Link out to the standalone case-presentation deck (slides-*.html). */
+.cs-slides-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 160ms var(--ease);
+}
+.cs-slides-btn svg {
+  transition: transform 0.25s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cs-slides-btn:hover {
+    background: var(--red);
+    border-color: var(--red);
+  }
+  .cs-slides-btn:hover svg {
+    transform: translateX(3px);
+  }
+}
+.cs-slides-btn:active {
+  transform: var(--press);
 }
 /* SunSlayer hero: full-bleed render instead of the boxed/veiled treatment other case
    studies use, since the image is dark enough on its own to carry white title text. Height

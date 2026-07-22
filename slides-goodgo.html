@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff2a2a" />
+  <title>GoodGo — Case Presentation | Luojinxuan Wang</title>
+  <meta name="description"
+    content="Case presentation: a navigation concept that makes accessibility visible at first glance." />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fffdf9'/%3E%3Ccircle cx='13' cy='16' r='8' fill='%23ff2a2a'/%3E%3Crect x='15' y='8' width='12' height='12' rx='2.5' fill='%2316020e'/%3E%3Ccircle cx='11' cy='11' r='5' fill='none' stroke='%23f4cbd9' stroke-width='2.6'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/slides.css" />
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="scanlines"></div>
+  <div class="deck-progress" aria-hidden="true"></div>
+
+  <header class="deck-header">
+    <a class="deck-brand" href="index.html">LUOJINXUAN WANG</a>
+    <span class="deck-header-label mono">Case presentation — <b>GoodGo Map</b></span>
+  </header>
+
+  <main class="deck" aria-label="GoodGo case presentation slides">
+    <div class="deck-track">
+      <!-- 01 · Title -->
+      <section class="slide slide--title" aria-label="Title">
+        <div class="hero-deco hero-route" data-no-advance aria-hidden="true">
+          <svg class="rt-svg">
+            <path class="rt-line"></path>
+          </svg>
+          <div class="rt-dot"></div>
+          <button class="rt-stop" type="button" tabindex="-1" aria-pressed="false" data-stop="0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 20h18M5 20l9-11M14 9h5v11"></path>
+            </svg>
+            <span class="rt-label">Ramp</span>
+          </button>
+          <button class="rt-stop" type="button" tabindex="-1" aria-pressed="false" data-stop="1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="5" y="3" width="14" height="18" rx="2"></rect>
+              <path d="M10 9l2-2 2 2M10 15l2 2 2-2"></path>
+            </svg>
+            <span class="rt-label">Elevator</span>
+          </button>
+          <button class="rt-stop" type="button" tabindex="-1" aria-pressed="false" data-stop="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="10" cy="5" r="2"></circle>
+              <path d="M8 9v6h4l3 5M8 15a5 5 0 1 0 5 5"></path>
+            </svg>
+            <span class="rt-label">Toilet</span>
+          </button>
+          <p class="deco-hint mono">Try Block A Stop</p>
+        </div>
+        <div class="slide-inner">
+          <h1 class="deck-name display" data-s="2">GOODGO <span class="outline">Map</span></h1>
+          <p class="deck-sub" data-s="3">A navigation concept that makes accessibility visible at first glance</p>
+        </div>
+      </section>
+
+      <!-- 02 · Context -->
+      <section class="slide slide--context-visual" aria-label="Project context">
+        <span class="slide-num mono"><b>02</b> — Project snapshot</span>
+
+        <div class="slide-inner">
+
+          <h2 data-s="2">
+            <span class="hl">End-to-end</span> Ownership
+          </h2>
+
+          <div class="context-board">
+            <div class="context-metrics" data-s="3">
+              <article class="context-metric context-metric--time" data-build="1">
+                <span class="context-number">2</span>
+                <div>
+                  <strong>Months</strong>
+                  <small>University project</small>
+                </div>
+              </article>
+
+              <span class="context-plus" aria-hidden="true">×</span>
+
+              <article class="context-metric context-metric--team" data-build="2">
+                <span class="context-number">2</span>
+                <div>
+                  <strong>People</strong>
+                  <small>I led most of the work</small>
+                </div>
+              </article>
+            </div>
+
+            <div class="context-flow" data-s="4">
+              <article class="context-phase" data-build="3">
+                <span class="context-phase-num mono">01</span>
+
+                <div class="context-phase-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                    <path d="m16 16 5 5"></path>
+                    <path d="M7.5 10.5h6M10.5 7.5v6"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <strong>Research</strong>
+                  <span>Survey · persona · audit · journey</span>
+                </div>
+              </article>
+
+              <div class="context-arrow" aria-hidden="true">
+                <span></span>
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 12h14M14 7l5 5-5 5"></path>
+                </svg>
+              </div>
+
+              <article class="context-phase context-phase--design" data-build="4">
+                <span class="context-phase-num mono">02</span>
+
+                <div class="context-phase-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 20 8.5 19 19 8.5 15.5 5 5 15.5 4 20Z"></path>
+                    <path d="m13.5 7 3.5 3.5"></path>
+                    <path d="M4 4h6M4 8h3"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <strong>Design</strong>
+                  <span>User flow · wireframes · final screens</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 · Problem scenario -->
+      <section class="slide slide--comic-day"
+        aria-label="Problem scenario: a day disrupted by missing accessibility information">
+        <span class="slide-num mono"><b>03</b> — Problem scenario</span>
+
+        <div class="slide-inner">
+          <h2 data-s="2">
+            4 Destinations,
+            <span class="hl">4 Unknowns</span>
+          </h2>
+
+          <div class="comic-storyline">
+            <!-- Click 1 -->
+            <figure class="comic-side-figure" data-story-step="1" aria-hidden="true">
+              <img src="assets/images/slide-persona-goodgo.svg" alt="Illustration of a wheelchair user"
+                loading="eager" />
+            </figure>
+
+            <div class="comic-timeline">
+              <!-- Click 2 -->
+              <article class="comic-panel" data-story-step="2" aria-hidden="true">
+                <span class="comic-time mono">08:30</span>
+                <span class="comic-tag">University</span>
+
+                <div class="comic-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6M8 10h.01M12 10h.01M16 10h.01" />
+                  </svg>
+                </div>
+
+                <div class="comic-sticker">Blocked</div>
+                <p class="comic-title">Elevator out of order</p>
+              </article>
+
+              <!-- Click 3 -->
+              <article class="comic-panel" data-story-step="3" aria-hidden="true">
+                <span class="comic-time mono">12:00</span>
+                <span class="comic-tag">Pharmacy</span>
+
+                <div class="comic-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M9 3h6v4h4v14H5V7h4V3ZM9 12h6M12 9v6" />
+                  </svg>
+                </div>
+
+                <div class="comic-sticker">Detour</div>
+                <p class="comic-title">Route ends at a curb</p>
+              </article>
+
+              <!-- Click 4 -->
+              <article class="comic-panel" data-story-step="4" aria-hidden="true">
+                <span class="comic-time mono">15:00</span>
+                <span class="comic-tag">Café</span>
+
+                <div class="comic-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M4 10h14v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-5ZM18 12h1a3 3 0 0 1 0 6h-2M6 4c0 2 2 2 2 4M11 4c0 2 2 2 2 4" />
+                  </svg>
+                </div>
+
+                <div class="comic-sticker">Unknown</div>
+                <p class="comic-title">Unclear accessibility</p>
+              </article>
+
+              <!-- Click 5 -->
+              <article class="comic-panel comic-panel--fail" data-story-step="5" aria-hidden="true">
+                <span class="comic-time mono">18:00</span>
+                <span class="comic-tag">Station</span>
+
+                <div class="comic-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M6 3h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2ZM8 21l2-3M16 21l-2-3M8 8h8M8 13h.01M16 13h.01" />
+                  </svg>
+                </div>
+
+                <div class="comic-sticker">Fails</div>
+                <p class="comic-title">No platform lift</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 04 · Pain point -->
+      <section class="slide slide--pain-overload"
+        aria-label="Pain point: juggling apps, Google searches and phone calls">
+        <span class="slide-num mono"><b>04</b> — Pain point</span>
+
+        <div class="slide-inner">
+          <header class="pain-head">
+            <div>
+              <span class="kicker" data-s="1">Before she can leave home</span>
+
+              <h2 class="pain-equation" data-s="2">
+                <span>Apps</span>
+                <i aria-hidden="true">+</i>
+                <span>Google</span>
+                <i aria-hidden="true">+</i>
+                <span>Calls</span>
+              </h2>
+            </div>
+
+            <div class="pain-score" data-s="3" aria-label="Five information sources, zero certainty">
+              <span>
+                <b data-source-count aria-live="polite">0</b>
+                sources
+              </span>
+
+              <span>
+                <b>0</b>
+                certainty
+              </span>
+            </div>
+          </header>
+
+          <div class="pain-stage" data-s="4">
+            <div class="collage">
+              <figure class="col-item col-search" data-build="4" data-tag="SEARCH">
+                <img src="assets/images/collage-search.png" alt="Search engine results for café accessibility"
+                  loading="eager" />
+              </figure>
+
+              <figure class="col-item col-train" data-build="3" data-tag="TRANSIT">
+                <img src="assets/images/collage-train.png" alt="A rail journey app listing outbound connections"
+                  loading="eager" />
+              </figure>
+
+              <figure class="col-item col-a11y" data-build="2" data-tag="SPECIALIST">
+                <img src="assets/images/collage-a11y.png" alt="Wheelmap marking places by wheelchair accessibility"
+                  loading="eager" />
+              </figure>
+
+              <figure class="col-item col-map" data-build="1" data-tag="MAP">
+                <img src="assets/images/collage-map.png" alt="Google Maps showing a route and travel-mode options"
+                  loading="eager" />
+              </figure>
+
+              <figure class="col-item col-call" data-build="5" data-tag="CALL">
+                <img src="assets/images/collage-call.png" alt="A phone call in progress to the venue" loading="eager" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- 05 ·Survey research -->
+      <section class="slide slide--stack" aria-label="Survey research">
+        <span class="slide-num mono"><b>05</b> — Research</span>
+        <div class="slide-inner">
+          <div class="slide-copy">
+            <h2 data-s="2"><span class="hl">~80 Answers</span> Set the Direction</h2>
+          </div>
+          <div class="chart-row" data-s="4">
+            <figure class="ctrl">
+              <div class="ctrl-media">
+                <img src="assets/images/cs-goodgo-infogather.png"
+                  alt="Survey chart: how wheelchair users currently gather accessibility information" loading="eager" />
+              </div>
+              <figcaption>No efficient info source</figcaption>
+            </figure>
+            <figure class="ctrl">
+              <div class="ctrl-media">
+                <img src="assets/images/cs-goodgo-importantinfo.png"
+                  alt="Survey chart: which accessibility information matters most when visiting a new place"
+                  loading="eager" />
+              </div>
+              <figcaption>Bathroom access matters most</figcaption>
+            </figure>
+            <figure class="ctrl">
+              <div class="ctrl-media">
+                <img src="assets/images/cs-goodgo-community.png"
+                  alt="Survey chart: importance of community engagement, averaging 8.6 out of 10" loading="eager" />
+              </div>
+              <figcaption>Community engagement averaged 8.6 out of 10</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 · Surprising finding -->
+      <section class="slide slide--finding"
+        aria-label="Surprising finding: wrong accessibility information is worse than missing information">
+        <span class="slide-num mono">
+          <b>06</b> — Assumption broke
+        </span>
+
+        <div class="slide-inner">
+          <header class="finding-head">
+
+            <h2 data-s="2">
+              <span class="hl">Wrong Info</span><br />
+              Is Worse Than No Info
+            </h2>
+          </header>
+
+          <div class="finding-compare">
+            <article class="finding-side finding-side--assumed" data-s="3">
+              <span class="finding-label mono">We assumed</span>
+
+              <div class="finding-word">
+                <span>Missing</span>
+                <small>?</small>
+              </div>
+
+              <p>
+                Data is missing.<br />
+                <strong>Add more of it.</strong>
+              </p>
+            </article>
+
+            <div class="finding-shift" data-s="4" aria-hidden="true">
+              <span class="finding-shift-line"></span>
+
+              <div class="finding-shift-mark">
+                ≠
+              </div>
+
+              <span class="finding-shift-line"></span>
+            </div>
+
+            <article class="finding-side finding-side--learned" data-s="4">
+              <span class="finding-label mono">We learned</span>
+
+              <div class="finding-word">
+                <span>Wrong</span>
+                <small>!</small>
+              </div>
+
+              <p>
+                Marked accessible.<br />
+                <strong>She arrives. It is locked.</strong>
+              </p>
+            </article>
+          </div>
+
+          <div class="finding-impact" data-s="5">
+            <span class="finding-impact-icon" aria-hidden="true">
+              ×
+            </span>
+
+            <p>
+              The journey fails.<br />
+              <strong>Trust disappears with it.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 · What users really want -->
+      <section class="slide slide--needs" aria-label="What users really want">
+        <span class="slide-num mono"><b>07</b> — The need</span>
+
+        <div class="slide-inner">
+          <header class="needs-head">
+            <h2 data-s="2">
+              What They <span class="hl">Really Want</span>
+            </h2>
+          </header>
+
+          <div class="needs-hub" data-s="3">
+            <div class="needs-column needs-column--left">
+              <article class="need-item">
+                <span class="need-number mono">N·01</span>
+
+                <div class="need-icon" aria-hidden="true">
+                  <!-- Place suitability -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 20V4h10v16"></path>
+                    <path d="M15 9h4v11"></path>
+                    <path d="M8 8h4"></path>
+                    <path d="m8 14 2 2 4-5"></path>
+                  </svg>
+                </div>
+
+                <div class="need-copy">
+                  <h3>Sufficient accessibility info</h3>
+                </div>
+              </article>
+
+              <article class="need-item">
+                <span class="need-number mono">N·02</span>
+
+                <div class="need-icon" aria-hidden="true">
+                  <!-- Journey planning -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M6 19c0-4 3-5 6-5s6-1 6-5"></path>
+                    <circle cx="6" cy="19" r="2"></circle>
+                    <circle cx="18" cy="7" r="2"></circle>
+                    <path d="M9 9h3"></path>
+                    <path d="m10.5 7.5 1.5 1.5-1.5 1.5"></path>
+                  </svg>
+                </div>
+
+                <div class="need-copy">
+                  <h3>Entire journey within one app</h3>
+                </div>
+              </article>
+            </div>
+
+            <div class="needs-core">
+              <strong>
+                Confidence<br />
+                throughout<br />
+                the journey
+              </strong>
+            </div>
+
+            <div class="needs-column needs-column--right">
+              <article class="need-item">
+                <span class="need-number mono">N·03</span>
+
+                <div class="need-icon" aria-hidden="true">
+                  <!-- Reliable information -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 3 19 6v5c0 4.5-2.8 7.7-7 10-4.2-2.3-7-5.5-7-10V6l7-3Z"></path>
+                    <path d="m8.5 12 2.2 2.2 4.8-5"></path>
+                  </svg>
+                </div>
+
+                <div class="need-copy">
+                  <h3>Accurate accessibility info</h3>
+                </div>
+              </article>
+
+              <article class="need-item">
+                <span class="need-number mono">N·04</span>
+
+                <div class="need-icon" aria-hidden="true">
+                  <!-- Easy contribution -->
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 5h16v11H9l-5 4V5Z"></path>
+                    <path d="M12 8v5"></path>
+                    <path d="M9.5 10.5h5"></path>
+                  </svg>
+                </div>
+
+                <div class="need-copy">
+                  <h3>Share lived experience</h3>
+                </div>
+              </article>
+            </div>
+          </div>
+      </section>
+
+      <!-- 08 · Competitive audit -->
+      <section class="slide slide--auditline" aria-label="Audit findings and design decisions">
+        <span class="slide-num mono">
+          <b>08</b> — Competitive audit
+        </span>
+
+        <div class="slide-inner">
+          <h2 class="audit-title" data-s="2">
+            <span class="audit-title-inner">
+              <span>Audit Findings</span>
+
+              <span class="audit-title-reveal">
+                <span class="hl">→</span>
+                <span>Design Decisions</span>
+              </span>
+            </span>
+          </h2>
+          
+          <!-- Click trigger -->
+          <span
+            class="audit-reveal-trigger"
+            data-build="1"
+            aria-hidden="true"
+          ></span>
+
+          <div class="audit-rail" data-s="3">
+            <!-- Larger audit evidence -->
+            <aside class="audit-proof">
+
+              <figure class="audit-proof-card">
+                <img src="assets/images/audit-wheelmap-board.png" alt="Competitive audit board for Wheelmap"
+                  loading="eager" />
+                <figcaption>
+                  <strong>Wheelmap</strong>
+                  <span>Place accessibility</span>
+                </figcaption>
+              </figure>
+
+              <figure class="audit-proof-card">
+                <img src="assets/images/audit-rongchang-board.png" alt="Competitive audit board for Rong Chang"
+                  loading="eager" />
+                <figcaption>
+                  <strong>Rong Chang</strong>
+                  <span>Accessible navigation</span>
+                </figcaption>
+              </figure>
+            </aside>
+
+            <!-- Direct finding-to-decision mapping -->
+            <div class="audit-stream">
+              <div class="audit-stream-head mono" aria-hidden="true">
+                <span>Audit finding</span>
+                <span></span>
+                <span class="audit-reveal">Design decision</span>
+              </div>
+
+              <article class="audit-pair">
+                <div class="audit-node audit-node--finding">
+                  <span class="audit-node-num mono">F·01</span>
+                  <b>Split experience</b>
+                </div>
+
+                <div class="audit-pair-arrow audit-reveal" aria-hidden="true">
+                  <span></span>
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14M14 7l5 5-5 5"></path>
+                  </svg>
+                </div>
+
+                <div class="audit-node audit-node--decision audit-reveal">
+                  <span class="audit-node-num mono">D·01</span>
+                  <b>Complete coverage of the journey</b>
+                </div>
+              </article>
+
+              <article class="audit-pair">
+                <div class="audit-node audit-node--finding">
+                  <span class="audit-node-num mono">F·02</span>
+                  <b>Coverage without clarity</b>
+                </div>
+
+                <div class="audit-pair-arrow audit-reveal" aria-hidden="true">
+                  <span></span>
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14M14 7l5 5-5 5"></path>
+                  </svg>
+                </div>
+
+                <div class="audit-node audit-node--decision audit-reveal">
+                  <span class="audit-node-num mono">D·02</span>
+                  <b>Information hierarchy</b>
+                </div>
+              </article>
+
+              <article class="audit-pair">
+                <div class="audit-node audit-node--finding">
+                  <span class="audit-node-num mono">F·03</span>
+                  <b>Limited community input</b>
+                </div>
+
+                <div class="audit-pair-arrow audit-reveal" aria-hidden="true">
+                  <span></span>
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14M14 7l5 5-5 5"></path>
+                  </svg>
+                </div>
+
+                <div class="audit-node audit-node--decision audit-reveal">
+                  <span class="audit-node-num mono">D·03</span>
+                  <b>Strong contribution loop</b>
+                </div>
+              </article>
+            </div>
+      </section>
+
+
+      <!-- 09 · Decision 1 -->
+      <section class="slide slide--decision decision--integration" aria-label="Decision one: integration">
+        <span class="slide-num mono"><b>09</b> — Design</span>
+
+        <div class="slide-inner">
+          <div class="decision-copy">
+            <span class="kicker" data-s="1">Decision 01 · Integration</span>
+
+            <h2 data-s="2">
+              <span class="hl">One Journey</span><br />
+              Without Another App
+            </h2>
+
+            <div class="decision-logic" data-s="3">
+            </div>
+          </div>
+
+          <div class="decision-visual integration-visual" data-s="4">
+            <figure class="shot integration-shortcuts" style="--ar: 858/280">
+              <img src="assets/images/cs-goodgo-shortcuts.png"
+                alt="Accessibility shortcut tabs for toilets, elevators, ramps and parking" loading="eager" />
+              <figcaption>Start with accessibility needs</figcaption>
+            </figure>
+
+            <div class="integration-arrow" aria-hidden="true">→</div>
+
+            <figure class="shot decision-phone integration-phone" style="--ar: 858/1175">
+              <img src="assets/images/cs-goodgo-wheeling.png"
+                alt="Wheeling mode with accessible facilities marked along the route" loading="eager" />
+              <figcaption>Continue through one accessible journey</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 10 · Decision 2 -->
+      <section class="slide slide--decision decision--effort" aria-label="Decision two: effort as routing criterion">
+        <span class="slide-num mono"><b>09</b> — Design</span>
+
+        <div class="slide-inner">
+          <div class="decision-copy">
+            <span class="kicker" data-s="1">Decision 02 · Route Preference</span>
+
+            <h2 data-s="2">
+              Optimise for <br /><span class="hl">Effort</span>
+            </h2>
+
+            <div class="decision-logic" data-s="3">
+            </div>
+          </div>
+
+          <div class="decision-visual effort-visual" data-s="4">
+            <figure class="shot decision-phone effort-phone" style="--ar: 954/1962">
+              <img src="assets/images/cs-goodgo-7.png"
+                alt="Trip preferences including least wheeling, lowest wheel intensity and accessible parking"
+                loading="eager" />
+            </figure>
+
+            <div class="effort-factor effort-factor--one">
+              <span aria-hidden="true">↔</span>
+              <b>Wheeling distance</b>
+            </div>
+
+            <div class="effort-factor effort-factor--two">
+              <span aria-hidden="true">◒</span>
+              <b>Wheel intensity</b>
+            </div>
+
+            <div class="effort-factor effort-factor--three">
+              <span aria-hidden="true">P</span>
+              <b>Accessible parking</b>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 11 · Decision 3 -->
+      <section class="slide slide--decision decision--depth" aria-label="Decision three: layered information depth">
+        <span class="slide-num mono"><b>09</b> — Design</span>
+
+        <div class="slide-inner">
+          <div class="decision-copy">
+            <span class="kicker" data-s="1">Decision 03 · Information hierarchy</span>
+
+            <h2 data-s="2">
+              <span class="hl">Clear</span>, Not Crowded
+            </h2>
+
+            <div class="decision-logic" data-s="3">
+            </div>
+          </div>
+
+          <div class="decision-visual depth-visual" data-s="4">
+            <figure class="shot decision-phone depth-phone" style="--ar: 954/1962">
+              <img src="assets/images/cs-goodgo-2.png"
+                alt="Accessible facilities panel showing step-free access, door widths and bathroom details"
+                loading="eager" />
+              <figcaption>Detailed information without overloading the main map</figcaption>
+            </figure>
+
+            <div class="depth-layers">
+              <article class="depth-layer depth-layer--primary">
+                <span class="mono">Layer 01</span>
+                <b>At first glance</b>
+                <p>Accessibility rating</p>
+              </article>
+
+              <div class="depth-layer-arrow" aria-hidden="true">↓</div>
+
+              <article class="depth-layer">
+                <span class="mono">Layer 02</span>
+                <b>On demand</b>
+                <p>Facility details</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 12 · Decision 4 -->
+      <section class="slide slide--decision decision--trust" aria-label="Decision four: designing trust">
+        <span class="slide-num mono"><b>09</b> — Design</span>
+
+        <div class="slide-inner">
+          <div class="decision-copy">
+            <span class="kicker" data-s="1">Decision 04 · Trust</span>
+
+            <h2 data-s="2">
+              Make Information<br />
+              <span class="hl">Alive</span>
+            </h2>
+
+            <div class="decision-logic" data-s="3">
+            </div>
+          </div>
+
+          <div class="decision-visual trust-visual" data-s="4">
+            <div class="trust-phones">
+              <figure class="shot trust-phone" style="--ar: 954/1962">
+                <img src="assets/images/cs-goodgo-4.png" alt="Ramp detail showing a live in-service status"
+                  loading="eager" />
+                <figcaption>Check live status</figcaption>
+              </figure>
+
+              <div class="trust-phone-arrow" aria-hidden="true">→</div>
+
+              <figure class="shot trust-phone" style="--ar: 954/1962">
+                <img src="assets/images/cs-goodgo-6.png"
+                  alt="Problem report options including wrong information, steps, objects on the road and rough ground"
+                  loading="eager" />
+                <figcaption>Report problems</figcaption>
+              </figure>
+            </div>
+
+            <div class="trust-loop" aria-label="Trust contribution loop">
+              <span><b>01</b> Check</span>
+              <i aria-hidden="true">→</i>
+              <span><b>02</b> Report</span>
+              <i aria-hidden="true">→</i>
+              <span><b>03</b> Improve</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 · Impact -->
+      <section class="slide slide--impact" aria-label="Design impact">
+        <span class="slide-num mono"><b>10</b> — Impact & Lessons learned</span>
+
+        <div class="slide-inner">
+          <header class="impact-head">
+
+            <h2 data-s="2">
+              Whole Journey,
+              <span class="hl">One App</span>
+            </h2>
+          </header>
+
+          <div class="impact-bottom">
+            <!-- Trade-off -->
+            <article class="impact-tradeoff" data-build="1" aria-hidden="true">
+              <span class="impact-label mono">Deliberate trade-off</span>
+
+              <div class="impact-tradeoff-title">
+                <span aria-hidden="true">≠</span>
+                <h3>Familiar on purpose</h3>
+              </div>
+              <strong>A correct route beats new-looking buttons.</strong>
+            </article>
+
+            <!-- Transferable principles -->
+            <div class="impact-principles" data-build="2" aria-hidden="true">
+              <div class="impact-principle-grid">
+                <article class="impact-principle">
+                  <span class="mono">P·01</span>
+                  <b>Entry point</b>
+                  <small>instead of another filter</small>
+                </article>
+
+                <article class="impact-principle">
+                  <span class="mono">P·02</span>
+                  <b>Effort</b>
+                  <small>instead of time alone</small>
+                </article>
+
+                <article class="impact-principle">
+                  <span class="mono">P·03</span>
+                  <b>Layered depth</b>
+                  <small>instead of information overload</small>
+                </article>
+
+                <article class="impact-principle">
+                  <span class="mono">P·04</span>
+                  <b>Community-powered updates</b>
+                  <small>instead of operator-only database maintenance</small>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 · Reflection / End -->
+      <section class="slide slide--reflection" aria-label="Reflection">
+        <span class="slide-num mono"><b>11</b> — Reflection</span>
+
+        <div class="slide-inner">
+          <div class="reflection-shift">
+            <article class="reflection-card reflection-card--ask" data-s="3">
+              <span class="reflection-number mono">01</span>
+              <span class="reflection-label mono">What we did</span>
+
+              <strong>Ask</strong>
+
+              <div class="reflection-method">
+                <span>Survey</span>
+                <p>What people believe</p>
+              </div>
+            </article>
+
+            <div class="reflection-arrow" data-s="4" aria-hidden="true">→</div>
+
+            <article class="reflection-card reflection-card--test" data-s="5">
+              <span class="reflection-number mono">02</span>
+              <span class="reflection-label mono">What comes next</span>
+
+              <strong>Test</strong>
+
+              <div class="reflection-method">
+                <span>Clickable prototype<br />on a real planned route</span>
+                <p>What actually breaks</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 · The gap I left -->
+      <section class="slide slide--gap slide--end" aria-label="The accessible taxi feature gap">
+        <span class="slide-num mono"><b>12</b> — Gap</span>
+
+        <!-- Four presentation clicks -->
+        <div class="gap-build-sequence" aria-hidden="true">
+          <span data-build="1"></span>
+          <span data-build="2"></span>
+          <span data-build="3"></span>
+          <span data-build="4"></span>
+        </div>
+
+        <div class="slide-inner">
+          <div class="gap-evidence">
+            <!-- Visible immediately -->
+            <figure class="shot emph gap-research" style="--ar: 1470/1292">
+              <span class="gap-evidence-label mono">Research signal</span>
+
+              <img class="gap-research-base" src="assets/images/cs-goodgo-frustrated.png"
+                alt="Survey chart of travel frustrations, led by limited transportation options at 37 responses"
+                loading="eager" />
+
+              <img class="emph-focus" src="assets/images/cs-goodgo-frustrated.png" alt="" aria-hidden="true"
+                loading="eager" />
+
+              <span class="emph-box" aria-hidden="true"></span>
+            </figure>
+
+            <!-- Appears on click 2 -->
+            <div class="gap-arrow" aria-hidden="true">→</div>
+
+            <figure class="shot gap-result" style="--ar: 858/127">
+              <img src="assets/images/cs-goodgo-modes.png"
+                alt="Travel-mode tabs including an accessible-taxi option alongside car, transit and wheeling"
+                loading="eager" />
+
+              <!-- Appears on click 3 -->
+              <figcaption>
+                The accessible-taxi mode exists<br />The experience behind it does not
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Appears on click 4 -->
+          <div class="deck-actions">
+            <a class="deck-cta deck-cta--primary" href="index.html" data-back>
+              Back to case study
+            </a>
+
+            <a class="deck-cta deck-cta--ghost" href="slides-chaldene.html">
+              Next deck: Chaldene →
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="deck-footer">
+    <span class="deck-count mono" aria-live="polite"></span>
+    <span class="deck-hint mono" aria-hidden="true">Click or → to advance · Esc to exit</span>
+    <div class="deck-nav">
+      <button class="deck-btn" type="button" data-nav="prev" aria-label="Previous slide">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <button class="deck-btn" type="button" data-nav="next" aria-label="Next slide">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <script src="assets/js/slides.js" defer></script>
+</body>
+
+</html>

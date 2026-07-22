@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" role="img" aria-label="Illustrated persona: a wheelchair user, drawn in geometric Bauhaus style">
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#16020e" stroke-opacity=".05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="1000" fill="#fffdf9"/>
+  <rect width="1000" height="1000" fill="url(#grid)"/>
+  <circle cx="490" cy="515" r="382" fill="#ffeef4"/>
+
+  <!-- Bauhaus accents, echoing the site's ring / square motif -->
+  <circle cx="832" cy="206" r="58" fill="none" stroke="#f7a4c4" stroke-width="26"/>
+  <rect x="138" y="768" width="90" height="90" rx="16" fill="#16020e" transform="rotate(-12 183 813)"/>
+  <path d="M150 862h700" stroke="#16020e" stroke-opacity=".18" stroke-width="4" stroke-linecap="round"/>
+
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Chair frame -->
+    <path d="M300 548h266" stroke="#16020e" stroke-width="17"/>
+    <path d="M300 548L278 342" stroke="#16020e" stroke-width="17"/>
+    <path d="M278 342l-32-30" stroke="#16020e" stroke-width="14"/>
+    <path d="M566 548l179 182" stroke="#16020e" stroke-width="14"/>
+    <path d="M390 660V548" stroke="#16020e" stroke-width="13"/>
+    <path d="M634 700l82 12" stroke="#f7a4c4" stroke-width="13"/>
+
+    <!-- Rear wheel -->
+    <g stroke="#16020e" stroke-opacity=".34" stroke-width="3">
+      <path d="M414 660L553 660"/><path d="M410.8 672L531.2 741.5"/>
+      <path d="M402 680.8L471.5 801.2"/><path d="M390 684L390 823"/>
+      <path d="M378 680.8L308.5 801.2"/><path d="M369.2 672L248.8 741.5"/>
+      <path d="M366 660L227 660"/><path d="M369.2 648L248.8 578.5"/>
+      <path d="M378 639.2L308.5 518.8"/><path d="M390 636L390 497"/>
+      <path d="M402 639.2L471.5 518.8"/><path d="M410.8 648L531.2 578.5"/>
+    </g>
+    <circle cx="390" cy="660" r="180" stroke="#16020e" stroke-width="15"/>
+    <circle cx="390" cy="660" r="148" stroke="#f7a4c4" stroke-width="9"/>
+    <circle cx="390" cy="660" r="24" fill="#16020e" stroke="none"/>
+
+    <!-- Front caster -->
+    <circle cx="762" cy="748" r="50" stroke="#16020e" stroke-width="13"/>
+    <circle cx="762" cy="748" r="11" fill="#16020e" stroke="none"/>
+
+    <!-- Seated figure: paper halo first so limbs stay legible over the wheel -->
+    <g stroke="#fffdf9" stroke-width="48">
+      <path d="M415 540L620 524"/><path d="M620 524L650 674"/><path d="M650 674L706 686"/>
+    </g>
+    <path d="M360 350C360 325 460 322 464 348L472 548H362Z" fill="#16020e" stroke="#fffdf9" stroke-width="10"/>
+    <circle cx="410" cy="272" r="57" fill="#ff2a2a" stroke="none"/>
+    <path d="M415 540L620 524" stroke="#16020e" stroke-width="36"/>
+    <path d="M620 524L650 674" stroke="#16020e" stroke-width="34"/>
+    <path d="M650 674L706 686" stroke="#16020e" stroke-width="22"/>
+    <path d="M452 372L505 480L529 609" stroke="#fffdf9" stroke-width="42"/>
+    <path d="M452 372L505 480L529 609" stroke="#16020e" stroke-width="28"/>
+    <circle cx="531" cy="612" r="17" fill="#16020e" stroke="none"/>
+  </g>
+</svg>

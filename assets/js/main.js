@@ -574,6 +574,7 @@
     chaldene: {
       title: "Interactive No-Code Image Processing",
       lead: "Turning a static workflow editor into a more expressive workspace for scientific image analysis",
+      slides: "slides-chaldene.html",
       hero: "assets/images/cs-chaldene-workflow.png",
       meta: {
         Role: "Research, Visual Design, UX Design, Full Stack Engineering, Video Production",
@@ -611,7 +612,7 @@
               cap: "Cropping",
             },
             {
-              src: "assets/images/cs-chaldene-diff.jpg",
+              src: "assets/images/cs-chaldene-diff.png",
               cap: "Difference map",
             },
             {
@@ -625,6 +626,7 @@
     goodgo: {
       title: "Navigation Designed Around Wheeling",
       lead: "A navigation experience that makes accessibility visible at first glance",
+      slides: "slides-goodgo.html",
       heroStrip: [
         "assets/images/cs-goodgo-1.png",
         "assets/images/cs-goodgo-5.png",
@@ -870,8 +872,12 @@
     const idx = order.indexOf(key),
       nextKey = order[(idx + 1) % order.length];
     const foot = `<footer class="cs-foot"><a class="cs-next" href="#" data-next="${esc(nextKey)}"><span class="cs-eyebrow">Next project</span><b>${esc(titles[nextKey] || "Next")}</b></a><a class="cs-back" href="#">Back to work</a></footer>`;
+    // Optional link out to the standalone case-presentation deck (slides-*.html).
+    const slidesBtn = cs.slides
+      ? `<a class="cs-slides-btn" href="${esc(cs.slides)}" data-cursor-hover="true"><span>View case presentation</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>`
+      : "";
     return (
-      `<section class="cs-hero" data-project="${esc(key)}">${heroImg}<div class="cs-hero-inner"><h1 class="cs-title" id="csTitle">${title}</h1>${lead ? `<p class="cs-lead">${lead}</p>` : ""}</div></section>` +
+      `<section class="cs-hero" data-project="${esc(key)}">${heroImg}<div class="cs-hero-inner"><h1 class="cs-title" id="csTitle">${title}</h1>${lead ? `<p class="cs-lead">${lead}</p>` : ""}${slidesBtn}</div></section>` +
       `<div class="cs-body">${meta}<div class="cs-main">${videoBlock}${sections}</div></div>` +
       foot
     );
