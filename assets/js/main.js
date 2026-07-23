@@ -166,8 +166,8 @@
 
   // ===== HERO HEADLINE: edit the typed statement here. em:true = the red word(s). =====
   const iaSegments = [
-    { text: "A filmmaker's eye, an engineer's hands. I make complex technology ", em: false },
-    { text: "intuitive.", em: true },
+    { text: "A filmmaker's eye, an engineer's hands. I make innovation feel ", em: false },
+    { text: "magical yet familiar.", em: true },
   ];
   const iaFullText = iaSegments.map((segment) => segment.text).join("");
   let iaRenderedCharacters = -1;
