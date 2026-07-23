@@ -262,20 +262,22 @@ cells  = measure.label(binary)</pre>
       <section class="slide slide--visual-gap" aria-label="Pain point: visual feedback remained limited">
         <span class="slide-num mono"><b>05</b> — Pain point</span>
 
+        <!-- Reveal: the original workflow is on screen from the start; click 1
+             marks the three faults, click 2 lands the headline verdict. -->
         <div class="slide-inner">
-          <h2 class="case-story-head" data-s="2">
+          <h2 class="case-story-head" data-build="2">
             Code Barrier Gone<br />
             The <span class="hl">Blindfold</span> Stayed
           </h2>
 
-          <figure class="visual-gap-shot" style="--ar: 3038/788" data-s="3">
+          <figure class="visual-gap-shot" style="--ar: 3038/788" data-s="2">
             <span class="visual-gap-tag mono">Original workflow</span>
             <img src="assets/images/cs-chaldene-old-workflow.png"
               alt="The original Chaldene workflow with parameters entered as text fields and small static previews"
               loading="eager" />
           </figure>
 
-          <ul class="visual-gap-faults" aria-label="What stayed broken">
+          <ul class="visual-gap-faults" data-build="1" aria-label="What stayed broken">
             <li class="visual-gap-fault">
               <span class="fault-x" aria-hidden="true">×</span>
               <span class="fault-label mono">Parameters</span>
@@ -541,9 +543,21 @@ cells  = measure.label(binary)</pre>
       <section class="slide slide--statement slide--anchor-top slide--decision-change"
         aria-label="A decision change: grid search">
         <span class="slide-num mono"><b>09</b> — A decision change</span>
+        <!-- Reveal: on entry, "They Asked For a Tree" over the rejected tree
+             sketch. Click 1 brings in "They Needed a Gallery" with the gallery
+             sketch. Click 2 grows the gallery that actually shipped. -->
         <div class="slide-inner">
           <span class="kicker" data-s="1">Mid-Project Evaluation</span>
-          <h2 data-s="2">They Asked For a Tree<br />They Needed a <span class="hl">Gallery</span></h2>
+
+          <div class="decision-heads" data-s="2">
+            <h2 class="decision-head decision-head--tree">
+              They Asked For a <span class="hl">Tree</span>
+            </h2>
+            <h2 class="decision-head decision-head--gallery" aria-hidden="true">
+              They Needed a <span class="hl">Gallery</span>
+            </h2>
+          </div>
+
           <div class="reveal-zone">
             <div class="sketch2 sketch2--seq">
               <div class="sketch-card sk-tree" data-s="4">
@@ -563,6 +577,7 @@ cells  = measure.label(binary)</pre>
                 </svg>
                 <span class="sk-label">Tree: one direction only. 3+ parameters: unreadable</span>
               </div>
+
               <div class="sketch-card sk-gallery" data-build="1">
                 <span class="sk-badge is-yes" aria-hidden="true">✓</span>
                 <svg viewBox="0 0 240 120" fill="none" aria-hidden="true">
@@ -578,6 +593,7 @@ cells  = measure.label(binary)</pre>
                 <span class="sk-label">Gallery: every combination side by side</span>
               </div>
             </div>
+
             <figure class="gallery-reveal" data-build="2">
               <img src="assets/images/cs-chaldene-gallery.jpg"
                 alt="The grid-search gallery: every parameter combination rendered side by side for comparison"

@@ -52,7 +52,7 @@ That's real progress. But removing the code didn't remove the friction. The way 
 
 ## 05 · The blindfold stayed
 
-My starting point was a formative user study from earlier in the project. Three problems kept coming back.
+My starting point was a formative user study from earlier in the project. This is the workflow it looked at. `[CLICK]` Three problems kept coming back.
 
 Parameters were still typed in as text. You set a threshold by entering a number and hoping.
 
@@ -60,7 +60,9 @@ Previews were small and static. You could see that an image existed. You couldn'
 
 And comparison happened outside the tool. Remembering previous states, re-wiring nodes, exporting images to look at them somewhere else.
 
-So the code barrier was gone, but the blindfold stayed. The tool showed you an output. It didn't let you investigate it.
+`[CLICK]` So the code barrier was gone, but the blindfold stayed. The tool showed you an output. It didn't let you investigate it.
+
+> Delivery note: the workflow image is on screen from the start. First click marks the three faults, second click lands the headline.
 
 ---
 
@@ -138,6 +140,8 @@ So the tree became a gallery. Every parameter combination is rendered as an imag
 
 This is what shipped. Zoom and pan are synchronised here too, and the winning result goes straight back into the pipeline with one click.
 
+> Delivery note: on entry, "They Asked For a Tree" over the tree sketch. Click 1 brings in "They Needed a Gallery" with the gallery sketch beside it. Click 2 grows the real interface.
+
 ---
 
 ## 10 · More previews, less wait
@@ -192,7 +196,8 @@ There was a formative study at the start, and I collected quick, informal feedba
 |---|---|
 | 01 Title | 0 (threshold node is draggable, optional) |
 | 02 Context | 4 |
-| 03–05 | 0 |
+| 03–04 | 0 |
+| 05 The blindfold stayed | 2 |
 | 06 One broken loop | 1 |
 | 07 Five rules | 0 (middle rule lands last on its own) |
 | 08.1–08.4 Solutions | 0 |

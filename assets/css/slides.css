@@ -953,11 +953,36 @@ button {
   max-width: 74ch;
 }
 
-/* ===== SLIDE 12 SEQUENCE =====
-   Beat 1: the tree alone, centred.
-   Beat 2: a cross lands on it while the gallery slides in from the right, squeezing
-           the tree leftward (the grid columns and container width animate together).
-   Beat 3: the real result grows out of the gallery sketch. */
+/* ===== SLIDE 12 · tree → gallery =====
+   On entry: "They Asked For a Tree" over the rejected tree sketch.
+   Click 1: "They Needed a Gallery" arrives with the gallery sketch, which
+            slides in beside the tree.
+   Click 2: the real result grows out of the gallery sketch. */
+
+/* The two headlines stack: "They Asked For a Tree" stays put, and
+   "They Needed a Gallery" drops in beneath it on the first click. */
+.decision-heads {
+  display: grid;
+  justify-items: inherit;
+}
+
+.decision-head {
+  margin: 0;
+}
+
+.decision-head--gallery {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+}
+
+.slide--decision-change .slide-inner:has(.sk-gallery.is-shown) .decision-head--gallery {
+  opacity: 1;
+  transform: none;
+}
+
+/* The tree sits alone and centred; when the gallery sketch is shown, the strip
+   widens and both sketches sit side by side. */
 .sketch2.sketch2--seq {
   max-width: 420px;
   margin-inline: auto;
@@ -1017,13 +1042,12 @@ button {
   animation: drawCheck 0.46s var(--ease) 0.45s forwards;
 }
 
-/* This slide's copy sits at the top rather than centred, so the revealed gallery
-   has the full lower half to occupy without running into the footer. */
+/* This slide's copy sits at the top so the revealed gallery has the full lower
+   half without running into the footer. */
 .slide--anchor-top {
   align-items: start;
 }
 
-/* Anchored to the top of the zone directly beneath the headline, square to the page. */
 .reveal-zone {
   position: relative;
 }
@@ -1060,11 +1084,19 @@ button {
 }
 
 /* Once the real thing lands, the sketches recede. */
-.reveal-zone:has(.gallery-reveal.is-shown) .sketch-card,
-.reveal-zone:has(.gallery-reveal.is-shown)>p {
+.reveal-zone:has(.gallery-reveal.is-shown) .sketch-card {
   opacity: 0.18;
   filter: blur(1px);
   transition: opacity 0.45s var(--ease), filter 0.45s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decision-head,
+  .sk-gallery,
+  .gallery-reveal {
+    transition: none;
+    transform: none;
+  }
 }
 
 /* One caption voice for every figure in the decks. */
@@ -1981,7 +2013,7 @@ button {
   color: var(--muted);
 }
 
-/* ===== DECISION SKETCHES: rejected vs chosen form. ===== */
+/* ===== DECISION SKETCHES: rejected tree vs chosen gallery (slide 12). ===== */
 .sketch2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2038,7 +2070,7 @@ button {
   background: var(--ink);
 }
 
-/* The chosen option's checkmark draws itself in once the slide lands. */
+/* The chosen option's checkmark draws itself in once revealed. */
 .sk-check {
   stroke-dasharray: 36;
   stroke-dashoffset: 36;
@@ -2047,13 +2079,6 @@ button {
 @keyframes drawCheck {
   to {
     stroke-dashoffset: 0;
-  }
-}
-
-@keyframes badgePop {
-  from {
-    transform: scale(0.4);
-    opacity: 0;
   }
 }
 
@@ -2144,10 +2169,6 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .sketch2 {
-    grid-template-columns: 1fr;
-  }
-
   .deck-hint {
     display: none;
   }
@@ -2192,7 +2213,7 @@ button {
     stroke-dashoffset: 0;
   }
 
-  .slide.is-active .sk-check {
+  .sk-gallery.is-shown .sk-check {
     animation: none;
   }
 
@@ -5342,32 +5363,54 @@ button {
   letter-spacing: -0.02em;
 }
 
-/* The three faults cascade in after the strip's slot, 60ms apart. */
+/* Click 1: the faults cascade in, 60ms apart. Until then the strip is
+   present for layout but its faults are hidden. */
+.slide--visual-gap .visual-gap-faults[data-build] {
+  visibility: hidden;
+}
+
+.slide--visual-gap .visual-gap-faults[data-build].is-shown {
+  visibility: visible;
+}
+
 .slide--visual-gap .visual-gap-fault {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 
-.slide.is-active .visual-gap-fault {
+.slide--visual-gap .visual-gap-faults.is-shown .visual-gap-fault {
   opacity: 1;
   transform: none;
 }
 
-.slide.is-active .visual-gap-fault:nth-child(1) {
-  transition-delay: 0.36s;
+.slide--visual-gap .visual-gap-faults.is-shown .visual-gap-fault:nth-child(1) {
+  transition-delay: 0.05s;
 }
 
-.slide.is-active .visual-gap-fault:nth-child(2) {
-  transition-delay: 0.42s;
+.slide--visual-gap .visual-gap-faults.is-shown .visual-gap-fault:nth-child(2) {
+  transition-delay: 0.11s;
 }
 
-.slide.is-active .visual-gap-fault:nth-child(3) {
-  transition-delay: 0.48s;
+.slide--visual-gap .visual-gap-faults.is-shown .visual-gap-fault:nth-child(3) {
+  transition-delay: 0.17s;
+}
+
+/* Click 2: the headline verdict lands. */
+.slide--visual-gap .case-story-head[data-build] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.slide--visual-gap .case-story-head[data-build].is-shown {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .visual-gap-fault {
+  .slide--visual-gap .visual-gap-fault,
+  .slide--visual-gap .case-story-head[data-build] {
     transform: none;
     transition: opacity 0.2s ease;
     transition-delay: 0s !important;
