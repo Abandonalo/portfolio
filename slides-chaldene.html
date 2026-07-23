@@ -1,127 +1,245 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#ff2a2a" />
-    <title>Chaldene — Case Presentation | Luojinxuan Wang</title>
-    <meta name="description" content="Case presentation: closing the feedback loop in scientific image processing at DFKI." />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fffdf9'/%3E%3Ccircle cx='13' cy='16' r='8' fill='%23ff2a2a'/%3E%3Crect x='15' y='8' width='12' height='12' rx='2.5' fill='%2316020e'/%3E%3Ccircle cx='11' cy='11' r='5' fill='none' stroke='%23f4cbd9' stroke-width='2.6'/%3E%3C/svg%3E"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/slides.css" />
-  </head>
-  <body>
-    <div class="noise"></div>
-    <div class="scanlines"></div>
-    <div class="deck-progress" aria-hidden="true"></div>
 
-    <header class="deck-header">
-      <a class="deck-brand" href="index.html">LUOJINXUAN WANG</a>
-      <span class="deck-header-label mono">Case presentation — <b>Chaldene</b></span>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff2a2a" />
+  <title>Chaldene — Case Presentation | Luojinxuan Wang</title>
+  <meta name="description"
+    content="Case presentation: closing the feedback loop in scientific image processing at DFKI." />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fffdf9'/%3E%3Ccircle cx='13' cy='16' r='8' fill='%23ff2a2a'/%3E%3Crect x='15' y='8' width='12' height='12' rx='2.5' fill='%2316020e'/%3E%3Ccircle cx='11' cy='11' r='5' fill='none' stroke='%23f4cbd9' stroke-width='2.6'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/slides.css" />
+</head>
 
-    <main class="deck" aria-label="Chaldene case presentation slides">
-      <div class="deck-track">
-        <!-- 01 · Title -->
-        <section class="slide slide--title" aria-label="Title">
-          <!-- Decorative: a working miniature of the case — drag the threshold node and the
+<body>
+  <div class="noise"></div>
+  <div class="scanlines"></div>
+  <div class="deck-progress" aria-hidden="true"></div>
+
+  <header class="deck-header">
+    <a class="deck-brand" href="index.html">LUOJINXUAN WANG</a>
+    <span class="deck-header-label mono">Case presentation — <b>Chaldene</b></span>
+  </header>
+
+  <main class="deck" aria-label="Chaldene case presentation slides">
+    <div class="deck-track">
+      <!-- 01 · Title -->
+      <section class="slide slide--title" aria-label="Title">
+        <!-- Decorative: a working miniature of the case — drag the threshold node and the
                preview re-renders. Pointer-only, hidden from assistive tech. -->
-          <div class="hero-deco hero-lab" data-no-advance aria-hidden="true">
-            <svg class="lab-wires"><path class="wire"></path><path class="wire"></path></svg>
-            <div class="lab-node" data-node="0" style="--x: 12%; --y: 30%">
-              <span class="ln-head">load image</span>
-              <span class="ln-body"><i class="ln-dot"></i>cells_0421.tif</span>
-            </div>
-            <div class="lab-node" data-node="1" style="--x: 13%; --y: 66%">
-              <span class="ln-head">threshold</span>
-              <span class="ln-body"><span class="ln-slider"><i></i></span><b class="ln-val">0.42</b></span>
-            </div>
-            <div class="lab-node" data-node="2" style="--x: 86%; --y: 52%">
-              <span class="ln-head">preview</span>
-              <span class="ln-body"><canvas class="ln-canvas" width="64" height="64"></canvas></span>
-            </div>
-            <p class="deco-hint mono">Drag the threshold node</p>
+        <div class="hero-deco hero-lab" data-no-advance aria-hidden="true">
+          <svg class="lab-wires">
+            <path class="wire"></path>
+            <path class="wire"></path>
+          </svg>
+          <div class="lab-node" data-node="0" style="--x: 12%; --y: 30%">
+            <span class="ln-head">load image</span>
+            <span class="ln-body"><i class="ln-dot"></i>cells_0421.tif</span>
           </div>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">Case presentation · DFKI</span>
-            <h1 class="deck-name display" data-s="2">CHAL<span class="outline">DENE</span></h1>
-            <p class="deck-sub" data-s="3">Closing the feedback loop in scientific image processing</p>
-            <div class="spec deck-spec" data-s="4">
-              <span>UX Engineering</span><span>Visual Programming</span><span>HCI</span><span>React</span
-              ><span>Python</span><span>JupyterLab</span>
-            </div>
+          <div class="lab-node" data-node="1" style="--x: 13%; --y: 66%">
+            <span class="ln-head">threshold</span>
+            <span class="ln-body"><span class="ln-slider"><i></i></span><b class="ln-val">0.42</b></span>
           </div>
-        </section>
-
-        <!-- 02 · Context -->
-        <section class="slide slide--statement" aria-label="Context: team and duration">
-          <span class="slide-num mono"><b>02</b> — Context</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">Context</span>
-            <h2 data-s="2">Where, how long, <span class="hl">with whom.</span></h2>
-            <div class="facts">
-              <div class="fact" data-s="3"><b>10 <em>months</em></b><span>Duration · student research assistant</span></div>
-              <div class="fact" data-s="3"><b>DFKI</b><span>German Research Center for AI · Agents &amp; Simulated Reality group</span></div>
-              <div class="fact" data-s="4"><b>My layer</b><span>The complete interaction layer — concept to shipped code</span></div>
-              <div class="fact" data-s="4"><b>Full stack</b><span>React frontend · Python backend · JupyterLab</span></div>
-            </div>
+          <div class="lab-node" data-node="2" style="--x: 86%; --y: 52%">
+            <span class="ln-head">preview</span>
+            <span class="ln-body"><canvas class="ln-canvas" width="64" height="64"></canvas></span>
           </div>
-        </section>
+          <p class="deco-hint mono">Drag the threshold node</p>
+        </div>
+        <div class="slide-inner">
+          <span class="kicker" data-s="1">Case presentation</span>
+          <h1 class="deck-name display" data-s="2">CHAL<span class="outline">DENE</span></h1>
+          <p class="deck-sub" data-s="3">Closing the feedback loop in scientific image processing</p>
+        </div>
+      </section>
 
+      <!-- 02 · Context -->
+      <section class="slide slide--statement slide--context-visual" aria-label="Context: team and duration">
+        <span class="slide-num mono"><b>02</b> — Context</span>
+        <div class="slide-inner">
+          <div class="context-board">
+            <div class="context-metrics" data-s="3">
+              <article class="context-metric context-metric--time" data-build="1">
+                <span class="context-number">10</span>
 
-        <!-- 04 · Persona -->
-        <section class="slide" aria-label="Targeted user persona">
-          <span class="slide-num mono"><b>03</b> — The user</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">The user</span>
-            <h2 data-s="2">A biologist. <span class="hl">Not a programmer.</span></h2>
-            <div class="persona">
-              <figure class="shot" data-s="3">
-                <img
-                  src="assets/images/slide-microscopy.jpg"
-                  alt="Immunohistochemically stained tissue: colonic glands, DAB stain with hematoxylin counterstain"
-                  loading="eager"
-                />
-                <figcaption>The kind of image she analyses — IHC stain, Center for Microscopy and Molecular Imaging</figcaption>
-              </figure>
-              <div>
-                <div class="p-rows" data-s="4">
-                  <div class="p-row"><span class="p-k">Works on</span><span>Cell &amp; tissue images — hundreds per experiment</span></div>
-                  <div class="p-row"><span class="p-k">Expert in</span><span>Knowing what a good result looks like</span></div>
-                  <div class="p-row"><span class="p-k">Not expert in</span><span>Python, environments, libraries</span></div>
-                  <div class="p-row"><span class="p-k">Works by</span><span>Experimenting — change, look, judge, repeat</span></div>
+                <div>
+                  <strong>Months</strong>
                 </div>
-                <p class="p-quote" data-s="5">I can see when a segmentation is right. I just can't code my way there.</p>
+              </article>
+
+              <span class="context-plus" aria-hidden="true">×</span>
+
+              <article class="context-metric context-metric--team context-metric--dfki" data-build="2">
+                <span class="context-number context-number--word">DFKI</span>
+
+                <div>
+                  <small>Research assistant @ Agents &amp; Simulated Reality group</small>
+                </div>
+              </article>
+            </div>
+
+            <div class="context-flow" data-s="4">
+              <article class="context-phase" data-build="3">
+                <span class="context-phase-num mono">01</span>
+
+                <div class="context-phase-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 20 8.5 19 19 8.5 15.5 5 5 15.5 4 20Z"></path>
+                    <path d="m13.5 7 3.5 3.5"></path>
+                    <path d="M4 4h6M4 8h3"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <strong>Design</strong>
+                  <span>Web UI · UX · Software Architecture</span>
+                </div>
+              </article>
+
+              <div class="context-arrow" aria-hidden="true">
+                <span></span>
+
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 12h14M14 7l5 5-5 5"></path>
+                </svg>
               </div>
+
+              <article class="context-phase context-phase--design" data-build="4">
+                <span class="context-phase-num mono">02</span>
+
+                <div class="context-phase-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 9 4 12l4 3"></path>
+                    <path d="m16 9 4 3-4 3"></path>
+                    <path d="m14 5-4 14"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <strong>Full-stack delivery</strong>
+                  <span>React · Python · JupyterLab integration</span>
+                </div>
+              </article>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- 05 · Pain point: code first -->
-        <section class="slide slide--split" aria-label="Pain point: programming required">
-          <span class="slide-num mono"><b>04</b> — Pain point</span>
-          <div class="slide-inner">
-            <div class="slide-copy">
-              <span class="kicker" data-s="1">Pain point</span>
-              <h2 data-s="2">First, become a <span class="hl">programmer.</span></h2>
-              <p data-s="3">Before a single cell is counted: set up an environment, learn the libraries, write the code.</p>
-              <span class="spec-label" data-s="4">Libraries she has to learn first</span>
-              <div class="spec spec--left" data-s="4">
-                <span>NumPy</span><span>SciPy</span><span>scikit-image</span><span>OpenCV</span
-                ><span>Matplotlib</span>
-              </div>
+
+      <!-- 03 · Persona -->
+      <section class="slide slide--persona-profile" aria-label="Target user">
+        <span class="slide-num mono"><b>03</b> — The user</span>
+
+        <div class="slide-inner">
+          <header class="persona-profile-head">
+
+            <h2 class="case-story-head" data-s="2">
+              She Knows What a
+              <span class="hl">Good Result</span> Looks Like
+            </h2>
+          </header>
+
+          <div class="persona-profile">
+            <figure class="persona-profile-image" data-s="3">
+              <img src="assets/images/slide-microscopy.jpg"
+                alt="Immunohistochemically stained tissue with colonic glands" loading="eager" />
+
+              <span class="persona-image-tag mono">Typical input</span>
+
+              <figcaption>
+                Immunohistochemically stained tissue image
+              </figcaption>
+            </figure>
+
+            <div class="persona-workflow" data-s="4">
+              <article class="persona-workflow-row">
+                <div>
+                  <small>Expert in</small>
+                  <strong>
+                    Judging whether an analysis result is scientifically meaningful
+                  </strong>
+                </div>
+              </article>
+
+              <article class="persona-workflow-row">
+                <div>
+                  <small>Works on</small>
+                  <strong>
+                    Hundreds of cell and tissue images per experiment
+                  </strong>
+                </div>
+              </article>
+
+
+              <article class="persona-workflow-row persona-workflow-row--accent">
+                <div>
+                  <small>Natural workflow</small>
+                  <strong>
+                    Change → inspect → judge → repeat
+                  </strong>
+                </div>
+              </article>
             </div>
-            <div class="code-card" data-s="5">
-              <div class="code-head"><i></i><i></i><i></i><span>count_cells.py</span></div>
-              <pre><span class="c-dim">$</span> conda create -n imaging python=3.10
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 · Pain point: code first -->
+      <section class="slide slide--code-barrier" aria-label="Pain point: programming required before image analysis">
+        <span class="slide-num mono"><b>04</b> — Pain point</span>
+
+        <div class="slide-inner">
+          <div class="code-barrier-copy">
+            <h2 class="case-story-head" data-s="2">
+              The Analysis Starts With
+              <span class="hl">Everything But the Image</span>
+            </h2>
+
+            <div class="code-barrier-steps" data-s="4">
+              <article class="code-barrier-step">
+
+                <div>
+                  <small>Configure</small>
+                  <strong>Set up Python, environments and dependencies</strong>
+                </div>
+              </article>
+
+              <article class="code-barrier-step">
+
+                <div>
+                  <small>Learn</small>
+                  <strong>
+                    NumPy · SciPy · scikit-image · OpenCV · Matplotlib
+                  </strong>
+                </div>
+              </article>
+
+              <article class="code-barrier-step code-barrier-step--accent">
+
+                <div>
+                  <small>Translate</small>
+                  <strong>Write code → Debug? → rerun</strong>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="code-card code-barrier-card" data-s="5">
+            <div class="code-head">
+              <i></i>
+              <i></i>
+              <i></i>
+              <span>Prerequisite · count_cells.py</span>
+            </div>
+
+            <pre><span class="c-dim">$</span> conda create -n imaging python=3.10
 <span class="c-dim">$</span> pip install numpy scikit-image opencv-python
 
 <span class="c-kw">import</span> numpy <span class="c-kw">as</span> np
@@ -132,317 +250,597 @@ gray   = img.mean(axis=<span class="c-str">2</span>)
 t      = filters.threshold_otsu(gray)
 binary = gray &gt; t        <span class="c-cmt"># is this right? run again…</span>
 cells  = measure.label(binary)</pre>
+
+            <div class="code-barrier-note mono">
+              The scientific work has not started yet
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- 06 · Pain point stayed: seeing -->
-        <section class="slide slide--stack" aria-label="Pain point: no visual feedback">
-          <span class="slide-num mono"><b>05</b> — Pain point</span>
-          <div class="slide-inner">
-            <div class="slide-copy">
-              <span class="kicker" data-s="1">Chaldene fixed the code…</span>
-              <h2 data-s="2">…but not the <span class="hl">seeing.</span></h2>
-              <ul data-s="3">
-                <li>Parameters = text fields. <strong>Which number is right?</strong></li>
-                <li>Previews: <strong>tiny and static.</strong></li>
-                <li>Comparing: <strong>memory, or external tools.</strong></li>
-              </ul>
+      <!-- 05 · Pain point stayed: seeing -->
+      <section class="slide slide--visual-gap" aria-label="Pain point: visual feedback remained limited">
+        <span class="slide-num mono"><b>05</b> — Pain point</span>
+
+        <div class="slide-inner">
+          <h2 class="case-story-head" data-s="2">
+            Code Barrier Gone<br />
+            The <span class="hl">Blindfold</span> Stayed
+          </h2>
+
+          <figure class="visual-gap-shot" style="--ar: 3038/788" data-s="3">
+            <span class="visual-gap-tag mono">Original workflow</span>
+            <img src="assets/images/cs-chaldene-old-workflow.png"
+              alt="The original Chaldene workflow with parameters entered as text fields and small static previews"
+              loading="eager" />
+          </figure>
+
+          <ul class="visual-gap-faults" aria-label="What stayed broken">
+            <li class="visual-gap-fault">
+              <span class="fault-x" aria-hidden="true">×</span>
+              <span class="fault-label mono">Parameters</span>
+              <strong>Typed blindly</strong>
+            </li>
+            <li class="visual-gap-fault">
+              <span class="fault-x" aria-hidden="true">×</span>
+              <span class="fault-label mono">Previews</span>
+              <strong>Too small to inspect</strong>
+            </li>
+            <li class="visual-gap-fault">
+              <span class="fault-x" aria-hidden="true">×</span>
+              <span class="fault-label mono">Comparison</span>
+              <strong>Outside the workflow</strong>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 06 · The insight: every fault breaks the same loop -->
+      <section class="slide slide--need-loop" aria-label="The insight: every fault breaks the same loop">
+        <span class="slide-num mono"><b>06</b> — The insight</span>
+
+        <div class="slide-inner">
+          <h2 class="case-story-head need-loop-head" data-s="2">
+            Three Faults, <br />
+            One Broken <span class="hl">Loop</span>
+          </h2>
+
+          <div class="cycle cycle--need" data-build="1">
+            <div class="cycle-row">
+              <b class="cyc" style="--i: 0">Change</b>
+              <i class="cyc-arr" aria-hidden="true"></i>
+
+              <b class="cyc cyc--missing" style="--i: 1">See</b>
+              <i class="cyc-arr" aria-hidden="true"></i>
+
+              <b class="cyc" style="--i: 2">Understand</b>
+              <i class="cyc-arr" aria-hidden="true"></i>
+
+              <b class="cyc" style="--i: 3">Repeat</b>
             </div>
-            <figure class="shot" style="--ar: 3038/788" data-s="4">
-              <img src="assets/images/cs-chaldene-old-workflow.png" alt="The original Chaldene workflow, with every parameter entered as a plain text field" loading="eager" />
-              <figcaption>Before — parameters as bare text fields, previews too small to judge</figcaption>
-            </figure>
-          </div>
-        </section>
 
-        <!-- 07 · What users really want -->
-        <section class="slide slide--statement" aria-label="What users really want">
-          <span class="slide-num mono"><b>06</b> — The need</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">What they really want</span>
-            <h2 data-s="2">Not to program.<br />To <span class="hl">experiment.</span></h2>
-            <div class="cycle" data-s="3">
-              <div class="cycle-row">
-                <b class="cyc" style="--i: 0">Change</b>
-                <i class="cyc-arr" aria-hidden="true"></i>
-                <b class="cyc" style="--i: 1">See</b>
-                <i class="cyc-arr" aria-hidden="true"></i>
-                <b class="cyc" style="--i: 2">Understand</b>
-                <i class="cyc-arr" aria-hidden="true"></i>
-                <b class="cyc" style="--i: 3">Repeat</b>
+            <div class="cycle-return">
+              <span class="cycle-break" aria-hidden="true"></span>
+            </div>
+
+            <p class="cycle-caption">
+              Every fault lands on the same step — the loop never turns
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 · Design goals -->
+      <section class="slide slide--goal-rails" aria-label="Five design goals">
+        <span class="slide-num mono"><b>07</b> — Direction</span>
+
+        <div class="slide-inner">
+          <h2 class="case-story-head" data-s="2">
+            Five Rules Guided<br />
+            <span class="hl">Every Decision</span>
+          </h2>
+
+          <!-- Reveal: the four support rules land first, leaving a hole in the
+               centre row — then the keystone fills it, echoing slide 06's missing step. -->
+          <ol class="goal-rails">
+            <li class="goal-rail" data-s="3">
+              <span class="goal-rail-num mono">01</span>
+
+              <div>
+                <strong>Direct manipulation</strong>
+                <p>Grab and drag, not type numbers</p>
               </div>
-              <div class="cycle-return"><span class="cycle-break" aria-hidden="true"></span></div>
-              <p class="cycle-caption">Loop broken — you change a value and see nothing</p>
-            </div>
-          </div>
-        </section>
+            </li>
 
-        <!-- 08 · Design goals -->
-        <section class="slide slide--statement" aria-label="Five design goals">
-          <span class="slide-num mono"><b>07</b> — Direction</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">Research → direction</span>
-            <h2 data-s="2">Five goals guarded every decision</h2>
-            <ol class="goals">
-              <li data-s="3"><span class="g-num">01</span><span><strong>Direct interaction</strong><span class="g-sub">Grab and drag — don't type numbers</span></span></li>
-              <li data-s="3"><span class="g-num">02</span><span><strong>Less to remember</strong><span class="g-sub">The system keeps track, not the human</span></span></li>
-              <li data-s="4"><span class="g-num">03</span><span><strong>Instant visual feedback</strong><span class="g-sub">Every change visible immediately</span></span></li>
-              <li data-s="4"><span class="g-num">04</span><span><strong>Comparison that jumps out</strong><span class="g-sub">Differences hit the eye</span></span></li>
-              <li data-s="5"><span class="g-num">05</span><span><strong>Speed that keeps up</strong><span class="g-sub">Stuttering feedback helps no one</span></span></li>
-            </ol>
-          </div>
-        </section>
+            <li class="goal-rail" data-s="4">
+              <span class="goal-rail-num mono">02</span>
 
-        <!-- 09 · Solution 1 -->
-        <section class="slide slide--stack" aria-label="Parameter controls">
-          <span class="slide-num mono"><b>08</b> — Design</span>
-          <div class="slide-inner">
-            <div class="ctrl-head">
-              <div class="slide-copy">
-                <span class="kicker" data-s="1">Solution 01</span>
-                <h2 data-s="2">Touch the <span class="hl">parameters.</span></h2>
+              <div>
+                <strong>Less to remember</strong>
+                <p>The system keeps track</p>
               </div>
-              <figure class="ctrl ctrl--sm" data-s="3">
-                <div class="ctrl-media">
-                  <img src="assets/images/cs-chaldene-slider.png" alt="Hybrid control: a slider paired with an exact number field" loading="eager" />
-                </div>
-                <figcaption><b>Slider + number</b> — feel it, still document it</figcaption>
-              </figure>
-            </div>
-            <div class="ctrl-pair" data-s="4">
-              <figure class="ctrl">
-                <div class="ctrl-media">
-                  <img src="assets/images/cs-chaldene-histo.png" alt="Histogram control: pick the range directly in the distribution" loading="eager" />
-                </div>
-                <figcaption><b>Histogram range</b> — cut where the data is, not blind</figcaption>
-              </figure>
-              <figure class="ctrl">
-                <div class="ctrl-media">
-                  <img src="assets/images/cs-chaldene-crop.jpg" alt="Visual cropper: drag a frame instead of typing four coordinates" loading="eager" />
-                </div>
-                <figcaption><b>Visual cropper</b> — drag a frame, not four coordinates</figcaption>
-              </figure>
-            </div>
-          </div>
-        </section>
+            </li>
 
-        <!-- 10 · Solution 2 -->
-        <section class="slide slide--stack" aria-label="Synchronized image viewer">
-          <span class="slide-num mono"><b>09</b> — Design</span>
-          <div class="slide-inner">
-            <div class="slide-copy">
-              <span class="kicker" data-s="1">Solution 02</span>
-              <h2 data-s="2">Every node, <span class="hl">one view.</span></h2>
-              <p data-s="3">Zoom in one node — all nodes follow. <strong>The same cell, at every step, at the same time.</strong></p>
+            <li class="goal-rail goal-rail--accent" data-s="6">
+              <span class="goal-rail-num mono">03</span>
+
+              <div>
+                <strong>Instant feedback</strong>
+                <p>Restores the loop's missing step</p>
+              </div>
+            </li>
+
+            <li class="goal-rail" data-s="5">
+              <span class="goal-rail-num mono">04</span>
+
+              <div>
+                <strong>Obvious comparison</strong>
+                <p>Differences should hit the eye</p>
+              </div>
+            </li>
+
+            <li class="goal-rail" data-s="5">
+              <span class="goal-rail-num mono">05</span>
+
+              <div>
+                <strong>Responsive speed</strong>
+                <p>Feedback must keep up</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 08 · Solution 1 -->
+      <section class="slide slide--parameters" aria-label="Direct manipulation parameter controls">
+        <span class="slide-num mono"><b>08</b> — Design</span>
+
+        <div class="slide-inner">
+          <!-- Asymmetric stage: the wide controls stack left under the headline,
+               the tall cropper owns the full right column — every screenshot
+               keeps its natural aspect ratio. -->
+          <div class="parameter-stage">
+            <div class="parameter-lead">
+              <span class="kicker" data-s="1">Solution 01</span>
+
+              <h2 class="case-story-head" data-s="2">
+                Manipulate<br />
+                <span class="hl">Don’t Type</span>
+              </h2>
             </div>
-            <figure class="shot" data-s="4">
-              <video class="shot-video" style="--ar: 1296/346"
-                     poster="assets/images/cs-chaldene-nodessync-poster.jpg"
-                     autoplay loop muted playsinline preload="auto"
-                     aria-label="Zooming one node moves every other node to the same spot">
-                <source src="assets/video/cs-chaldene-nodessync.mp4" type="video/mp4" />
-                <source src="assets/video/cs-chaldene-nodessync.webm" type="video/webm" />
-              </video>
-              <figcaption>Zoom one node — every other node jumps to the same spot</figcaption>
+
+            <figure class="parameter-item parameter-item--slider" data-s="3">
+              <span class="parameter-tag mono">Precise</span>
+              <img src="assets/images/cs-chaldene-slider.png"
+                alt="Hybrid parameter control combining a slider with an exact number field" loading="eager" />
+              <figcaption>
+                <b>Slider + number</b> — explore fast, document exact values
+              </figcaption>
+            </figure>
+
+            <figure class="parameter-item parameter-item--histogram" data-s="4">
+              <span class="parameter-tag mono">Data-aware</span>
+              <img src="assets/images/cs-chaldene-histo.png"
+                alt="Histogram control for selecting a threshold range directly from the image distribution"
+                loading="eager" />
+              <figcaption>
+                <b>Histogram range</b> — pick thresholds where the data is
+              </figcaption>
+            </figure>
+
+            <figure class="parameter-item parameter-item--cropper" data-s="5">
+              <span class="parameter-tag mono">Spatial</span>
+              <img src="assets/images/cs-chaldene-crop.jpg"
+                alt="Visual cropper for selecting an image region by dragging a frame" loading="eager" />
+              <figcaption>
+                <b>Visual cropper</b> — drag the region, not four coordinates
+              </figcaption>
             </figure>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- 11 · Solution 3 -->
-        <section class="slide slide--split" aria-label="Difference map">
-          <span class="slide-num mono"><b>10</b> — Design</span>
-          <div class="slide-inner">
-            <div class="slide-copy">
-              <span class="kicker" data-s="1">Solution 03</span>
-              <h2 data-s="2">Make the change <span class="hl">visible.</span></h2>
-              <p data-s="3">The difference map highlights exactly the pixels an operation changed — right inside the node. <strong>What did this step do? One glance.</strong></p>
-            </div>
-            <figure class="shot shot--cap" data-s="4">
-              <video class="shot-video" style="--ar: 600/644"
-                     poster="assets/images/cs-chaldene-diff-poster.jpg"
-                     autoplay loop muted playsinline preload="auto"
-                     aria-label="Toggling Diff on the remove-small-objects node reveals exactly which pixels changed">
-                <source src="assets/video/cs-chaldene-diff.mp4" type="video/mp4" />
-                <source src="assets/video/cs-chaldene-diff.webm" type="video/webm" />
-              </video>
-              <figcaption>Toggle Diff — the map marks exactly what the operation removed</figcaption>
-            </figure>
+      <!-- 08 · Solution 2 -->
+      <section class="slide slide--stack" aria-label="Synchronized image viewer">
+        <span class="slide-num mono"><b>08</b> — Design</span>
+        <div class="slide-inner">
+          <div class="slide-copy">
+            <span class="kicker" data-s="1">Solution 02</span>
+            <h2 data-s="2">Every Node, <span class="hl">One View</span></h2>
           </div>
-        </section>
+          <figure class="shot" data-s="4">
+            <video class="shot-video" style="--ar: 1296/346" poster="assets/images/cs-chaldene-nodessync-poster.jpg"
+              autoplay loop muted playsinline preload="auto"
+              aria-label="Zooming one node moves every other node to the same spot">
+              <source src="assets/video/cs-chaldene-nodessync.mp4" type="video/mp4" />
+              <source src="assets/video/cs-chaldene-nodessync.webm" type="video/webm" />
+            </video>
+            <figcaption>Zoom one node — every other node jumps to the same spot</figcaption>
+          </figure>
+        </div>
+      </section>
 
-        <!-- 12 · Solution 4 -->
-        <section class="slide slide--split" aria-label="Batch processing">
-          <span class="slide-num mono"><b>11</b> — Design</span>
-          <div class="slide-inner">
-            <div class="slide-copy">
-              <span class="kicker" data-s="1">Solution 04</span>
-              <h2 data-s="2">Nobody analyses <span class="hl">one</span> image.</h2>
-              <p data-s="3">Research means series — often hundreds. One interface to select and manage whole collections.</p>
+      <!-- 08 · Solution 3 -->
+      <section class="slide slide--split slide--diff" aria-label="Difference map">
+        <span class="slide-num mono"><b>08</b> — Design</span>
+        <div class="slide-inner">
+          <div class="slide-copy">
+            <span class="kicker" data-s="1">Solution 03</span>
+            <h2 data-s="2">Reveal the Change in <span class="hl">One Click</span></h2>
+
+            <div class="diff-contrast" data-s="3">
+
+              <div class="diff-row diff-row--on">
+                <span class="diff-mark" aria-hidden="true">✓</span>
+
+                <div>
+                  <small>Toggle Diff</small>
+                  <strong>Changed pixels marked, right in the node</strong>
+                </div>
+              </div>
             </div>
-            <figure class="shot shot--cap" style="--ar: 690/1198" data-s="4">
-              <img src="assets/images/cs-chaldene-batch.jpg" alt="Batch interface for selecting and managing whole image collections" loading="eager" />
-            </figure>
           </div>
-        </section>
 
-        <!-- 13 · A decision change -->
-        <section class="slide slide--statement slide--anchor-top" aria-label="A decision change: grid search">
-          <span class="slide-num mono"><b>12</b> — A decision change</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">A decision change · mid-project evaluation</span>
-            <h2 data-s="2">They asked for a tree.<br />They needed a <span class="hl">gallery.</span></h2>
-            <div class="reveal-zone">
-            <p data-s="3">The wish: collapsible results for parameter search. I took it seriously — not literally.</p>
+          <figure class="shot shot--cap" data-s="4">
+            <video class="shot-video" style="--ar: 600/644" poster="assets/images/cs-chaldene-diff-poster.jpg" autoplay
+              loop muted playsinline preload="auto"
+              aria-label="Toggling Diff on the remove-small-objects node reveals exactly which pixels changed">
+              <source src="assets/video/cs-chaldene-diff.mp4" type="video/mp4" />
+              <source src="assets/video/cs-chaldene-diff.webm" type="video/webm" />
+            </video>
+            <figcaption>The map marks exactly what the operation removed</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 08 · Solution 4 -->
+      <section class="slide slide--batch" aria-label="Batch processing for image collections">
+        <span class="slide-num mono"><b>08</b> — Design</span>
+
+        <div class="slide-inner">
+          <div class="batch-copy">
+            <span class="kicker" data-s="1">
+              Solution 04
+            </span>
+
+            <h2 class="case-story-head" data-s="2">
+              Design for the
+              <span class="hl">Series</span><br />
+              Not the Sample
+            </h2>
+
+            <div class="batch-scale" data-s="3" aria-label="From one image to hundreds">
+              <div class="batch-scale-item batch-scale-item--single">
+                <span class="mono">Before</span>
+                <strong>1</strong>
+                <small>image at a time</small>
+              </div>
+
+              <div class="batch-scale-arrow" aria-hidden="true">→</div>
+
+              <div class="batch-scale-item batch-scale-item--collection">
+                <span class="mono">Research reality</span>
+                <strong>100+</strong>
+                <small>one managed collection</small>
+              </div>
+            </div>
+          </div>
+
+          <figure class="batch-demo" data-s="4">
+            <img src="assets/images/cs-chaldene-batch.jpg"
+              alt="Batch interface for selecting and managing whole image collections" loading="eager" />
+
+            <figcaption>
+              Select, organise and process complete image series
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 09 · A decision change -->
+      <section class="slide slide--statement slide--anchor-top slide--decision-change"
+        aria-label="A decision change: grid search">
+        <span class="slide-num mono"><b>09</b> — A decision change</span>
+        <div class="slide-inner">
+          <span class="kicker" data-s="1">Mid-Project Evaluation</span>
+          <h2 data-s="2">They Asked For a Tree<br />They Needed a <span class="hl">Gallery</span></h2>
+          <div class="reveal-zone">
             <div class="sketch2 sketch2--seq">
               <div class="sketch-card sk-tree" data-s="4">
                 <span class="sk-badge is-no" aria-hidden="true">✕</span>
                 <svg viewBox="0 0 240 120" fill="none" aria-hidden="true">
-                  <rect x="8" y="8" width="70" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
-                  <path d="M20 26v64M20 44h18M20 66h18M20 90h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <rect x="42" y="36" width="60" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
-                  <rect x="42" y="58" width="60" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
-                  <rect x="42" y="82" width="60" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
-                  <path d="M112 44v40M112 58h16M112 84h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <rect x="132" y="50" width="52" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
-                  <rect x="132" y="76" width="52" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
+                  <rect x="8" y="8" width="70" height="18" rx="4" stroke="currentColor" stroke-width="2" />
+                  <path d="M20 26v64M20 44h18M20 66h18M20 90h18" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                  <rect x="42" y="36" width="60" height="16" rx="4" stroke="currentColor" stroke-width="2" />
+                  <rect x="42" y="58" width="60" height="16" rx="4" stroke="currentColor" stroke-width="2" />
+                  <rect x="42" y="82" width="60" height="16" rx="4" stroke="currentColor" stroke-width="2" />
+                  <path d="M112 44v40M112 58h16M112 84h16" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" />
+                  <rect x="132" y="50" width="52" height="16" rx="4" stroke="currentColor" stroke-width="2" />
+                  <rect x="132" y="76" width="52" height="16" rx="4" stroke="currentColor" stroke-width="2" />
                   <text x="196" y="66" font-size="26" fill="currentColor" font-family="monospace">?</text>
                 </svg>
-                <span class="sk-label">Tree — one direction only. 3+ parameters: unreadable</span>
+                <span class="sk-label">Tree: one direction only. 3+ parameters: unreadable</span>
               </div>
               <div class="sketch-card sk-gallery" data-build="1">
                 <span class="sk-badge is-yes" aria-hidden="true">✓</span>
                 <svg viewBox="0 0 240 120" fill="none" aria-hidden="true">
-                  <rect x="14" y="10" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2"/>
-                  <rect x="90" y="10" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2"/>
-                  <rect x="166" y="10" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2"/>
-                  <rect x="14" y="66" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2"/>
-                  <rect x="90" y="66" width="60" height="44" rx="5" stroke="#ff2a2a" stroke-width="3"/>
-                  <path class="sk-check" d="M108 88l8 8 16-16" stroke="#ff2a2a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                  <rect x="166" y="66" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2"/>
+                  <rect x="14" y="10" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2" />
+                  <rect x="90" y="10" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2" />
+                  <rect x="166" y="10" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2" />
+                  <rect x="14" y="66" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2" />
+                  <rect x="90" y="66" width="60" height="44" rx="5" stroke="#ff2a2a" stroke-width="3" />
+                  <path class="sk-check" d="M108 88l8 8 16-16" stroke="#ff2a2a" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                  <rect x="166" y="66" width="60" height="44" rx="5" stroke="currentColor" stroke-width="2" />
                 </svg>
-                <span class="sk-label">Gallery dialog — every combination side by side, pick with your eyes</span>
+                <span class="sk-label">Gallery: every combination side by side</span>
               </div>
             </div>
-              <figure class="gallery-reveal" data-build="2">
-                <img src="assets/images/cs-chaldene-gallery.jpg" alt="The grid-search gallery: every parameter combination rendered side by side for comparison" loading="eager" />
-                <figcaption>What shipped — compare with your eyes, one click back into the pipeline</figcaption>
-              </figure>
-            </div>
+            <figure class="gallery-reveal" data-build="2">
+              <img src="assets/images/cs-chaldene-gallery.jpg"
+                alt="The grid-search gallery: every parameter combination rendered side by side for comparison"
+                loading="eager" />
+            </figure>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- 14 · Under the hood -->
-        <section class="slide slide--statement" aria-label="Engineering under the hood">
-          <span class="slide-num mono"><b>13</b> — Engineering</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">Under the hood</span>
-            <h2 data-s="2">More previews —<br /><span class="hl">zero waiting.</span></h2>
-            <p data-s="3">The heavy maths runs on the server, but the picture is <strong>drawn on your own screen</strong> — so zooming and panning never wait for anything. And every preview travels bundled into a single message. That part is a trade:</p>
-            <div class="race" data-s="4">
-              <div class="race-row">
-                <span class="race-name">Send a link, then go and fetch the picture</span>
-                <div class="race-line">
-                  <div class="race-bar" style="width: 90%">
-                    <span class="seg seg-msg" style="--w: 11">Message</span>
-                    <span class="seg seg-wait" style="--w: 34">Screen has to ask a second time</span>
-                    <span class="seg seg-img" style="--w: 45">Picture</span>
-                  </div>
-                  <span class="race-flag">On screen</span>
+      <!-- 10 · Under the hood -->
+      <section class="slide slide--statement slide--engineering-race" aria-label="Engineering under the hood">
+        <span class="slide-num mono"><b>10</b> — Engineering</span>
+
+        <div class="slide-inner">
+          <header class="engineering-race-head">
+            <span class="kicker" data-s="1">Under the Hood</span>
+
+            <h2 data-s="2">
+              More Previews<br />
+              <span class="hl">Less Wait</span>
+            </h2>
+          </header>
+
+          <div class="race">
+            <div class="race-row" data-build="1">
+              <span class="race-name">
+                Send a link, then go and fetch the picture
+              </span>
+
+              <div class="race-line">
+                <div class="race-bar" style="width: 90%">
+                  <span class="seg seg-msg" style="--w: 11">Message</span>
+                  <span class="seg seg-wait" style="--w: 34">
+                    Screen asks a second time
+                  </span>
+                  <span class="seg seg-img" style="--w: 45">Picture</span>
                 </div>
+
+                <span class="race-flag">On screen</span>
               </div>
-              <div class="race-row">
-                <span class="race-name">Send the picture inside the message</span>
-                <div class="race-line">
-                  <div class="race-bar" style="width: 75%">
-                    <span class="seg seg-both" style="--w: 75">Message with the picture already inside</span>
-                  </div>
-                  <span class="race-flag is-win">On screen, sooner</span>
+            </div>
+
+            <div class="race-row" data-build="2">
+              <span class="race-name">
+                Send the picture inside the message
+              </span>
+
+              <div class="race-line">
+                <div class="race-bar" style="width: 75%">
+                  <span class="seg seg-both" style="--w: 75">
+                    Message with the picture already inside
+                  </span>
                 </div>
+
+                <span class="race-flag is-win">On screen sooner</span>
               </div>
             </div>
-            <p class="race-note" data-s="5">One less wait for every preview — and a pipeline is full of previews</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- 15 · Impact -->
-        <section class="slide slide--statement" aria-label="Impact">
-          <span class="slide-num mono"><b>14</b> — Impact</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">Impact</span>
-            <h2 data-s="2">The loop is <span class="hl">closed.</span></h2>
-            <div class="cycle cycle--closed" data-s="3" style="margin-top: 18px">
-              <div class="cycle-row">
-                <b class="cyc" style="--i: 0">Change</b>
-                <i class="cyc-arr" aria-hidden="true"></i>
-                <b class="cyc" style="--i: 1">See</b>
-                <i class="cyc-arr" aria-hidden="true"></i>
-                <b class="cyc" style="--i: 2">Understand</b>
-                <i class="cyc-arr" aria-hidden="true"></i>
-                <b class="cyc" style="--i: 3">Repeat</b>
-              </div>
-              <div class="cycle-return"></div>
+      <!-- 11 · Impact -->
+      <section class="slide slide--impact-loop" aria-label="Impact">
+        <span class="slide-num mono"><b>11</b> — Impact</span>
+
+        <div class="slide-inner">
+          <header class="impact-loop-head">
+            <h2 class="case-story-head" data-s="2">
+              The Loop Is
+              <span class="hl">Closed</span>
+            </h2>
+          </header>
+
+          <div class="cycle cycle--need cycle--closed" data-build="1">
+            <div class="cycle-row">
+              <b class="cyc" style="--i: 0">Change</b>
+              <i class="cyc-arr" aria-hidden="true"></i>
+
+              <b class="cyc cyc--healed" style="--i: 1">See</b>
+              <i class="cyc-arr" aria-hidden="true"></i>
+
+              <b class="cyc" style="--i: 2">Understand</b>
+              <i class="cyc-arr" aria-hidden="true"></i>
+
+              <b class="cyc" style="--i: 3">Repeat</b>
             </div>
-            <div class="cols2" style="margin-top: 30px">
-              <div class="col-card">
-                <span class="kicker" data-s="2">Before</span>
-                <p data-s="2">Type. Run. Guess. Remember.</p>
+
+            <div class="cycle-return"></div>
+          </div>
+
+
+          <div class="impact-comparison" data-build="2">
+            <article class="impact-state impact-state--before">
+              <span class="mono">Before</span>
+              <strong>Type · Run · Guess · Remember</strong>
+            </article>
+
+            <span class="impact-comparison-arrow" aria-hidden="true">→</span>
+
+            <article class="impact-state impact-state--after">
+              <span class="mono">After</span>
+              <strong>Tune · Inspect · Compare · Repeat</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 12 · Reflection -->
+      <section class="slide slide--reflection-visual" aria-label="Reflection: what I learned">
+        <span class="slide-num mono"><b>12</b> — Reflection</span>
+
+        <div class="slide-inner">
+          <header class="reflection-head">
+            <h2 class="case-story-head" data-s="2">
+              Two <span class="hl">Lessons</span>
+            </h2>
+          </header>
+
+          <div class="reflection-lessons">
+            <article class="reflection-lesson reflection-lesson--loop" data-build="1">
+              <div class="reflection-loop-visual" aria-hidden="true">
+                <svg viewBox="0 0 180 180">
+                  <path d="M142 57a61 61 0 1 1-24-22" fill="none" stroke="currentColor" stroke-width="9"
+                    stroke-linecap="round" />
+                  <path d="M102 34 L118 35 L108 22" fill="none" stroke="currentColor" stroke-width="9"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <span>↻</span>
               </div>
-              <div class="col-card is-accent">
-                <span class="kicker" data-s="3">After</span>
-                <p data-s="3">Tune visually. Inspect in place. Compare side by side.</p>
+
+              <div class="reflection-lesson-copy">
+                <strong>
+                  Feedback Is<br />
+                  Essential
+                </strong>
               </div>
+            </article>
+
+            <article class="reflection-lesson reflection-lesson--goals" data-build="2">
+              <div class="reflection-scale-visual" aria-hidden="true">
+                <div class="reflection-speed-lines">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+
+                <div class="reflection-scale-stack">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="reflection-scale-arrow">↗</div>
+              </div>
+
+              <div class="reflection-lesson-copy">
+                <strong>
+                  UX Must Perform<br />
+                  &amp; Scale
+                </strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13 · Next time -->
+      <section class="slide slide--next-measure slide--end" aria-label="Next time: measure the impact">
+        <span class="slide-num mono"><b>13</b> — Next time</span>
+
+        <div class="slide-inner">
+          <header class="next-measure-head">
+            <h2 class="case-story-head" data-s="2">
+              <span class="hl">Show</span><br />
+              It’s Better
+            </h2>
+
+            <strong class="next-measure-question" data-s="3">
+              By How Much?
+            </strong>
+          </header>
+
+          <!-- Honest framing: this project shipped on informal feedback (empty
+               track), the plan is to measure task times, and the "?" is the
+               number that's still missing. -->
+          <div class="next-measure-visual" data-build="1">
+            <article class="measure-state measure-state--before">
+              <div class="measure-state-head">
+                <span class="mono">This time</span>
+                <strong>Shipped on feel</strong>
+              </div>
+
+              <div class="measure-track measure-track--empty"></div>
+
+              <div class="measure-time">
+                <span class="measure-clock" aria-hidden="true">❝</span>
+                <span>“Feels faster” — no numbers</span>
+              </div>
+            </article>
+
+            <div class="measure-transition" aria-hidden="true">
+              <span>→</span>
             </div>
-            <p data-s="4" style="margin-top: 24px">
-              Plus an extended node spec: new widgets integrate easily. <strong>The system grows — without me.</strong>
-            </p>
-          </div>
-        </section>
 
-        <!-- 16 · Reflection / End -->
-        <section class="slide slide--statement" aria-label="Reflection: what I learned">
-          <span class="slide-num mono"><b>15</b> — Reflection</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">What I learned</span>
-            <h2 data-s="2">The feedback loop <span class="hl">is</span> the product.</h2>
-            <p data-s="3">Users forgive a missing feature. They don't forgive a system that shows them nothing.</p>
-            <p data-s="4">And design goals beat clever ideas — five of them kept me from arbitrary decisions.</p>
-          </div>
-        </section>
+            <article class="measure-state measure-state--after">
+              <div class="measure-state-head">
+                <span class="mono">Next time</span>
+                <strong>Measure task times</strong>
+              </div>
 
-        <!-- 16 · Next time -->
-        <section class="slide slide--statement slide--end" aria-label="Next time">
-          <span class="slide-num mono"><b>16</b> — Next time</span>
-          <div class="slide-inner">
-            <span class="kicker" data-s="1">Next time</span>
-            <h2 data-s="2">Measure it —<br /><span class="hl">not just ship it.</span></h2>
-            <p data-s="3">My feedback was fast but informal. Next time I measure before and after — task times, most obviously — so I can show not just <em>that</em> it got better, but <strong>by how much</strong>.</p>
-            <div class="deck-actions" data-build="1">
-              <a class="deck-cta deck-cta--primary" href="index.html" data-back>Back to case study</a>
-              <a class="deck-cta deck-cta--ghost" href="slides-goodgo.html">Next deck: GoodGo →</a>
+              <div class="measure-track">
+                <span class="measure-bar measure-bar--after"></span>
+              </div>
+
+              <div class="measure-time">
+                <span class="measure-clock" aria-hidden="true">◷</span>
+                <span>Baseline → after, per task</span>
+              </div>
+            </article>
+
+            <div class="measure-delta">
+              <span class="mono">The goal</span>
+              <strong>?</strong>
             </div>
           </div>
-        </section>
-      </div>
-    </main>
 
-    <footer class="deck-footer">
-      <span class="deck-count mono" aria-live="polite"></span>
-      <span class="deck-hint mono" aria-hidden="true">Click or → to advance · Esc to exit</span>
-      <div class="deck-nav">
-        <button class="deck-btn" type="button" data-nav="prev" aria-label="Previous slide">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </button>
-        <button class="deck-btn" type="button" data-nav="next" aria-label="Next slide">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </button>
-      </div>
-    </footer>
+          <div class="deck-actions" data-build="2">
+            <a class="deck-cta deck-cta--primary" href="index.html" data-back>
+              Back to case study
+            </a>
 
-    <script src="assets/js/slides.js" defer></script>
-  </body>
+            <a class="deck-cta deck-cta--ghost" href="slides-goodgo.html">
+              Next deck: GoodGo →
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="deck-footer">
+    <span class="deck-count mono" aria-live="polite"></span>
+    <span class="deck-hint mono" aria-hidden="true">Click or → to advance · Esc to exit</span>
+    <div class="deck-nav">
+      <button class="deck-btn" type="button" data-nav="prev" aria-label="Previous slide">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      <button class="deck-btn" type="button" data-nav="next" aria-label="Next slide">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <script src="assets/js/slides.js" defer></script>
+</body>
+
 </html>
